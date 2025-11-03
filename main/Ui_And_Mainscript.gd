@@ -8,7 +8,7 @@ extends Node2D
 	
 func _process(_delta: float):
 	Camera.global_position = RigidBody.global_position
-	XpLabel.text = Global.exp
-	MoneyLabel.text = Global.money
-	PrestigeLabel.text = Global.prestige
+	XpLabel.text = str(Global.exp)
+	MoneyLabel.text = str(Global.money)
+	PrestigeLabel.text = str(Global.prestige)
 	
