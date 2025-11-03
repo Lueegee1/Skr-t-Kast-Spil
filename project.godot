@@ -11,7 +11,9 @@ config_version=5
 [application]
 
 config/name="SkråtKastSpil"
+run/main_scene="uid://6kn331a0he7y"
 config/features=PackedStringArray("4.5", "Forward Plus")
+boot_splash/bg_color=Color(0.002549314, 0.002549314, 0.0028502517, 1)
 
 [autoload]
 
