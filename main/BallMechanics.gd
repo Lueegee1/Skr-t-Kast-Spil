@@ -1,6 +1,7 @@
 extends RigidBody2D
 # To Do:
 # Look into angular Damp, what it is and if its relevant
+# Look into physicsMaterial Absorbent clause, what it does and if it relevant
 
 #------------------------------------------ Setup ------------------------------------------
 
@@ -10,22 +11,26 @@ extends RigidBody2D
 @export var stop_threshold := 0.0            # velocity threshold rquired for the RigidBody2D to be considered stopped
 @export var stop_delay := 1.5                # seconds it must stay still to count as stopped
 @export var time_between_launch = 0.5        # the time between launch command being given and the RigidBody2D actually being launched
-@export var air_resistance = 1               # uses the "Damp" variable as air resistance
+@export var air_resistance = 1               # uses the "damp" variable as air resistance
+@export var gravity = 1                      # uses the "gravity_scale" as gravity
+@export var ground_friction = 0.5            # uses PhysicsMaterial's "friction" as friction
+@export var ground_elasticity = 0.5          # uses PhysicsMaterial's "bounce" as the grounds elasticity
 
 # variables
 var still_time := 0.0                        # var to hold the ellapsed time the RigidBody2D has been stationary  
 
-# defining objects
+# defining object paths
 @onready var StartPos = $"../Marker2D"       # start position of the RigidBody2D
 @onready var Sprite = $Sprite2D              # sprite of the RigidBody2D
 @onready var collision = $CollisionPolygon2D # collision of the RigidBody2D
 
 #------------------------------------------ Code ------------------------------------------
 
-func _ready() -> void: # sets ud variables, waits a bit then calls the launch function LaunchRigidBody()
-	linear_damp = air_resistance
+func _ready() -> void: # sets up variables, waits a bit then calls the launch function LaunchRigidBody()
+	reload_variables()
 	await get_tree().create_timer(time_between_launch).timeout
-	launchRigidBody(launch_angle) 
+	launchRigidBody(launch_angle)
+	
 
 func launchRigidBody(angle): # launch RigidBody at input angle
 	var radians = deg_to_rad(angle)
@@ -36,8 +41,8 @@ func rigidBodyStopped(): # reset position and velocity of the RigidBody2D
 	linear_velocity = Vector2.ZERO
 	launchRigidBody(launch_angle)
 
-func _physics_process(delta):
-# RigidBody is not moving cause
+func _physics_process(delta): # called every frame
+# RigidBody is not moving check
 	if linear_velocity.length() < stop_threshold:
 		still_time += delta
 	else:
@@ -46,7 +51,8 @@ func _physics_process(delta):
 	if still_time >= stop_delay:
 		rigidBodyStopped()
 
-func reload_variables(): # reloads all variables
+func reload_variables(): # reloads all variables used in physics calculations
 	linear_damp = air_resistance
-	
-	
+	gravity_scale = gravity
+	PhysicsMaterial.friction = ground_friction
+	PhysicsMaterial.bounce = ground_elasticity

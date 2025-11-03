@@ -1,8 +1,12 @@
-[gd_scene load_steps=5 format=3 uid="uid://pmrbuelgkrua"]
+[gd_scene load_steps=6 format=3 uid="uid://pmrbuelgkrua"]
 
 [ext_resource type="Script" uid="uid://dskg7hx4b5lr" path="res://main/Ui_And_Mainscript.gd" id="1_53q0u"]
 [ext_resource type="Script" uid="uid://c1vagnp7y22hl" path="res://main/BallMechanics.gd" id="2_pjrb6"]
 [ext_resource type="Script" uid="uid://dxurlyfv61set" path="res://main/Ground.gd" id="3_xwkvk"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_xwkvk"]
+friction = 0.5
+bounce = 0.5
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xwkvk"]
 size = Vector2(499, 115)
@@ -46,6 +50,7 @@ scale = Vector2(0.7734855, 16.107555)
 
 [node name="RigidBody2D" type="RigidBody2D" parent="LaunchSite"]
 scale = Vector2(1, 1.0167047)
+physics_material_override = SubResource("PhysicsMaterial_xwkvk")
 script = ExtResource("2_pjrb6")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="LaunchSite/RigidBody2D"]
