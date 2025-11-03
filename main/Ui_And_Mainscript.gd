@@ -1,7 +1,7 @@
 extends Node2D
 
-func _ready():
-	$Camera2D.global_position = $LaunchSite/RigidBody2D.global_position
+@onready var Camera = $Camera2D
+@onready var RigidBody = $LaunchSite/RigidBody2D
 	
-func _process(delta: float):
-	$Camera2D.global_position = $LaunchSite/RigidBody2D.global_position
+func _process(_delta: float):
+	Camera.global_position = RigidBody.global_position
