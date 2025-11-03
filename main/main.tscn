@@ -1,13 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://pmrbuelgkrua"]
+[gd_scene load_steps=4 format=3 uid="uid://pmrbuelgkrua"]
 
 [ext_resource type="Script" uid="uid://dskg7hx4b5lr" path="res://main/Ui_And_Mainscript.gd" id="1_53q0u"]
 [ext_resource type="Script" uid="uid://c1vagnp7y22hl" path="res://main/BallMechanics.gd" id="2_pjrb6"]
+[ext_resource type="Script" uid="uid://dxurlyfv61set" path="res://main/Ground.gd" id="3_xwkvk"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_53q0u")
 
 [node name="UI" type="CanvasLayer" parent="."]
-script = ExtResource("1_53q0u")
 
 [node name="Camera2D" type="Camera2D" parent="UI"]
 
@@ -52,3 +52,4 @@ script = ExtResource("2_pjrb6")
 [node name="Marker2D" type="Marker2D" parent="LaunchSite"]
 
 [node name="Ground" type="Node2D" parent="."]
+script = ExtResource("3_xwkvk")
