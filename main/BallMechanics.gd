@@ -13,7 +13,7 @@ var still_time := 0.0                        # var to hold the ellapsed time the
 
 func _ready() -> void:
 # launches the polygon soon after running the scene
-	get_tree().create_timer(1.0)
+	await get_tree().create_timer(1.0).timeout
 	LaunchRigidBody(launch_angle) 
 
 func LaunchRigidBody(angle):
