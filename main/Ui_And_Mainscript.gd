@@ -10,5 +10,5 @@ func _process(_delta: float):
 	Camera.global_position = RigidBody.global_position
 	XpLabel.text = Global.exp
 	MoneyLabel.text = Global.money
-	PrestigeLabel.text = Global.prestige
+	PrestigeLabel.text = Global.prestige 
 	
