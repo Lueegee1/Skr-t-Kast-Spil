@@ -1,8 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://pmrbuelgkrua"]
+[gd_scene load_steps=5 format=3 uid="uid://pmrbuelgkrua"]
 
 [ext_resource type="Script" uid="uid://dskg7hx4b5lr" path="res://main/Ui_And_Mainscript.gd" id="1_53q0u"]
 [ext_resource type="Script" uid="uid://c1vagnp7y22hl" path="res://main/BallMechanics.gd" id="2_pjrb6"]
 [ext_resource type="Script" uid="uid://dxurlyfv61set" path="res://main/Ground.gd" id="3_xwkvk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xwkvk"]
+size = Vector2(499, 115)
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_53q0u")
@@ -46,6 +49,9 @@ scale = Vector2(1, 1.0167047)
 script = ExtResource("2_pjrb6")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="LaunchSite/RigidBody2D"]
+position = Vector2(1, -35.408516)
+build_mode = 1
+polygon = PackedVector2Array(-1, 13.769978, 23, 13.769978, 23, 35.408512, -1, 35.408512)
 
 [node name="Sprite2D" type="Sprite2D" parent="LaunchSite/RigidBody2D"]
 
@@ -53,3 +59,9 @@ script = ExtResource("2_pjrb6")
 
 [node name="Ground" type="Node2D" parent="."]
 script = ExtResource("3_xwkvk")
+
+[node name="Test solid" type="StaticBody2D" parent="."]
+
+[node name="Test collision shape" type="CollisionShape2D" parent="Test solid"]
+position = Vector2(217, 64)
+shape = SubResource("RectangleShape2D_xwkvk")
