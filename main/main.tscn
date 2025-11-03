@@ -2,10 +2,6 @@
 
 [ext_resource type="Script" uid="uid://dskg7hx4b5lr" path="res://main/Ui_And_Mainscript.gd" id="1_53q0u"]
 [ext_resource type="Script" path="res://main/BallMechanics.gd" id="2_pjrb6"]
-<<<<<<< HEAD
-=======
-[ext_resource type="Script" uid="uid://dxurlyfv61set" path="res://main/Ground.gd" id="4_c651c"]
->>>>>>> 28f3be48d6f1d2c03381a592df570c29071ec711
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_53q0u")
@@ -56,4 +52,3 @@ script = ExtResource("2_pjrb6")
 [node name="Marker2D" type="Marker2D" parent="LaunchSite"]
 
 [node name="Ground" type="Node2D" parent="."]
-script = ExtResource("4_c651c")
