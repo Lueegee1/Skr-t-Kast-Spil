@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://pmrbuelgkrua"]
+[gd_scene load_steps=4 format=3 uid="uid://pmrbuelgkrua"]
 
 [ext_resource type="Script" uid="uid://dskg7hx4b5lr" path="res://main/Ui_And_Mainscript.gd" id="1_53q0u"]
 [ext_resource type="Script" uid="uid://c1vagnp7y22hl" path="res://main/BallMechanics.gd" id="2_pjrb6"]
+[ext_resource type="Texture2D" uid="uid://cly0fj6cc464m" path="res://John Boss.png" id="3_xwkvk"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_53q0u")
@@ -46,6 +47,7 @@ script = ExtResource("2_pjrb6")
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="LaunchSite/RigidBody2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="LaunchSite/RigidBody2D"]
+texture = ExtResource("3_xwkvk")
 
 [node name="Marker2D" type="Marker2D" parent="LaunchSite"]
 
