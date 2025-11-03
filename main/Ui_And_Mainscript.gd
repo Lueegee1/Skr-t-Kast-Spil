@@ -1,6 +1,6 @@
 extends Node2D
 
-@onready var Camera = $Camera2D
+@onready var Camera = $UI/Camera2D
 @onready var RigidBody = $LaunchSite/RigidBody2D
 @onready var XpLabel = $UI/Camera2D/XpLabel
 @onready var MoneyLabel = $UI/Camera2D/MoneyLabel
