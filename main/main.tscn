@@ -1,6 +1,7 @@
-[gd_scene load_steps=10 format=3 uid="uid://pmrbuelgkrua"]
+[gd_scene load_steps=11 format=3 uid="uid://pmrbuelgkrua"]
 
 [ext_resource type="Script" uid="uid://dskg7hx4b5lr" path="res://main/Ui_And_Mainscript.gd" id="1_53q0u"]
+[ext_resource type="Script" uid="uid://bah7bqvk6ivwr" path="res://main/Background.gd" id="2_3wy1v"]
 [ext_resource type="Shader" uid="uid://bo8l0sgsycmsd" path="res://main/BackgroundShader.gdshader" id="2_kfbq2"]
 [ext_resource type="Script" uid="uid://c1vagnp7y22hl" path="res://main/BallMechanics.gd" id="2_pjrb6"]
 [ext_resource type="Script" uid="uid://dxurlyfv61set" path="res://main/Ground.gd" id="3_xwkvk"]
@@ -16,7 +17,7 @@ bounce = 0.5
 shader = ExtResource("2_kfbq2")
 shader_parameter/grid_size = Vector2(64, 64)
 shader_parameter/line_thickness = 1.5
-shader_parameter/world_offset = Vector2(0, 0)
+shader_parameter/camera_origin = Vector2(0, 0)
 shader_parameter/ball_position = Vector2(0, 0)
 shader_parameter/light_radius = 150.0
 script = SubResource("GDScript_3wy1v")
@@ -42,6 +43,7 @@ offset_right = -46.0
 offset_bottom = -104.0
 scale = Vector2(2.4090874, 2.1431155)
 theme_override_font_sizes/font_size = 12
+text = "0"
 
 [node name="MoneyLabel" type="Label" parent="UI/Camera2D/CanvasLayer"]
 custom_minimum_size = Vector2(5, 5)
@@ -51,6 +53,7 @@ offset_right = -71.0
 offset_bottom = -104.0
 scale = Vector2(2.4195173, 2.1346257)
 theme_override_font_sizes/font_size = 12
+text = "0"
 
 [node name="PrestigeLabel" type="Label" parent="UI/Camera2D/CanvasLayer"]
 custom_minimum_size = Vector2(5, 5)
@@ -60,6 +63,7 @@ offset_right = -95.0
 offset_bottom = -102.99999
 scale = Vector2(2.39408, 2.0930214)
 theme_override_font_sizes/font_size = 12
+text = "0"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="UI/Camera2D/CanvasLayer"]
 offset_left = 958.0
@@ -105,6 +109,7 @@ offset_left = -1490.0
 offset_top = -1209.0
 offset_right = 3467.0
 offset_bottom = 782.0
+script = ExtResource("2_3wy1v")
 
 [node name="Test solid" type="StaticBody2D" parent="."]
 script = ExtResource("4_c651c")
