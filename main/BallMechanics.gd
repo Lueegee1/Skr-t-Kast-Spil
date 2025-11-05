@@ -8,14 +8,14 @@ extends RigidBody2D
 
 # exported variables
 @export var launch_speed: float = 1000.0               # speed that the RigidBody2D is launched with
-@export var launch_angle: float = 45.0                 # angle of launch of the RigidBody2D
+@export var launch_angle: float = 89.0                 # angle of launch of the RigidBody2D
 @export var stop_threshold := 5.0                      # velocity threshold rquired for the RigidBody2D to be considered stopped
 @export var stop_delay := 1.5                          # seconds it must stay still to count as stopped
 @export var time_between_launch = 0.5                  # the time between launch command being given and the RigidBody2D actually being launched
 @export var air_resistance = 0                     # uses the "damp" variable as air resistance
-@export var gravity = 1.0                              # uses the "gravity_scale" as gravity
+@export var gravity = 3                              # uses the "gravity_scale" as gravity
 @export var ground_friction = 0                 # uses PhysicsMaterial's "friction" as friction
-@export var ground_elasticity = 10                    # uses PhysicsMaterial's "bounce" as the grounds elasticity
+@export var ground_elasticity = 1000                    # uses PhysicsMaterial's "bounce" as the grounds elasticity
 
 # variables
 var still_time := 0.0                                  # var to hold the ellapsed time the RigidBody2D has been stationary  
@@ -29,6 +29,7 @@ var BodyMaterial = PhysicsMaterial.new()               # makes a new PhysicsMate
 #------------------------------------------ Code ------------------------------------------
 
 func _ready():
+	Global.Ball = self
 	await get_tree().process_frame  # wait one frame so the shape exists
 	reload_variables()
 
