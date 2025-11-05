@@ -1,11 +1,12 @@
-extends TextureRect
+extends ColorRect
 
+@onready var grid = $"."
+@onready var ball = $"../../LaunchSite/RigidBody2D"
+@onready var camera = $"../../UI/Camera2D"
 
-#Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
+func _process(_delta):
+	var mat = grid.material as ShaderMaterial
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+	# Pass ball position and camera offset to shader
+	mat.set_shader_parameter("ball_position", ball.global_position)
+	mat.set_shader_parameter("world_offset", camera.get_screen_center_position() - camera.offset)
