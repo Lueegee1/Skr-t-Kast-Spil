@@ -178,3 +178,10 @@ shape = SubResource("RectangleShape2D_xwkvk")
 script = ExtResource("7_4dugh")
 
 [connection signal="value_changed" from="UI/Camera2D/CanvasLayer/VBoxContainer/Angle" to="." method="_on_angle_changed"]
+[connection signal="pressed" from="UI/Camera2D/CanvasLayer/VBoxContainer/AngleUpgrade" to="." method="_on_angle_upgrade_pressed"]
+[connection signal="pressed" from="UI/Camera2D/CanvasLayer/VBoxContainer/GravityUpgrade" to="." method="_on_gravity_upgrade_pressed"]
+[connection signal="pressed" from="UI/Camera2D/CanvasLayer/VBoxContainer/FrictionUpgrade" to="." method="_on_friction_upgrade_pressed"]
+[connection signal="pressed" from="UI/Camera2D/CanvasLayer/VBoxContainer/ElasticityUpgrade" to="." method="_on_elasticity_upgrade_pressed"]
+[connection signal="pressed" from="UI/Camera2D/CanvasLayer/VBoxContainer/SpeedUpgrade" to="." method="_on_speed_upgrade_pressed"]
+[connection signal="pressed" from="UI/Camera2D/CanvasLayer/VBoxContainer/AirResistanceUpgrade" to="." method="_on_air_resistance_upgrade_pressed"]
+[connection signal="pressed" from="UI/Camera2D/CanvasLayer/VBoxContainer/Shape" to="." method="_on_shape_changed"]

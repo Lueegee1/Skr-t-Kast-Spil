@@ -1,5 +1,6 @@
 extends Node2D
 
+
 @onready var Camera = $UI/Camera2D
 @onready var RigidBody = $LaunchSite/RigidBody2D
 @onready var XpLabel = $UI/Camera2D/CanvasLayer/XpLabel
@@ -27,4 +28,32 @@ func _process(_delta: float):# update position and money, xp and prestige
 
 
 func _on_angle_changed(value: float):
+	Global.Ball.launch_angle = value
+
+
+func _on_angle_upgrade_pressed() -> void:
+	pass # Replace with function body.
+
+
+func _on_gravity_upgrade_pressed() -> void:
+	pass # Replace with function body.
+
+
+func _on_friction_upgrade_pressed() -> void:
+	pass # Replace with function body.
+
+
+func _on_elasticity_upgrade_pressed() -> void:
+	pass # Replace with function body.
+
+
+func _on_speed_upgrade_pressed() -> void:
+	pass # Replace with function body.
+
+
+func _on_air_resistance_upgrade_pressed() -> void:
+	pass # Replace with function body.
+
+
+func _on_shape_changed() -> void:
 	pass # Replace with function body.
