@@ -24,7 +24,7 @@ var BodyMaterial = PhysicsMaterial.new()               # makes a new PhysicsMate
 # defining object paths
 @onready var StartPos = $"../Marker2D".global_position # start position of the RigidBody2D
 @onready var Sprite = $Sprite2D                        # sprite of the RigidBody2D
-@onready var collision =$CollisionPolygon2D            # collision of the RigidBody2D
+@onready var collision = $CollisionPolygon2D       # collision of the RigidBody2D
 
 #------------------------------------------ Code ------------------------------------------
 
@@ -54,16 +54,15 @@ func _physics_process(delta): # called every frame
 		initiate_Launch()
 
 func reload_variables():
+	# Air resistance & gravity
 	linear_damp_mode = RigidBody2D.DAMP_MODE_REPLACE
 	angular_damp_mode = RigidBody2D.DAMP_MODE_REPLACE
 	linear_damp = air_resistance
 	gravity_scale = gravity
 
+	# Friction & bounce
 	BodyMaterial.friction = ground_friction
 	BodyMaterial.bounce = ground_elasticity
 
-	# Apply material to the polygon's shape (after it exists)
-	await get_tree().process_frame
-	var shape = collision.get_shape()
-	if shape:
-		shape.set_material(BodyMaterial)
+	# Apply the material to the RigidBody2D itself
+	physics_material_override = BodyMaterial

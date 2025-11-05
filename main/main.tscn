@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://pmrbuelgkrua"]
+[gd_scene load_steps=13 format=3 uid="uid://pmrbuelgkrua"]
 
 [ext_resource type="Script" uid="uid://dskg7hx4b5lr" path="res://main/Ui_And_Mainscript.gd" id="1_53q0u"]
 [ext_resource type="Script" uid="uid://bah7bqvk6ivwr" path="res://main/Background.gd" id="2_3wy1v"]
@@ -11,6 +11,9 @@
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_xwkvk"]
 friction = 0.5
 bounce = 0.5
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4dugh"]
+size = Vector2(24, 21.802841)
 
 [sub_resource type="GDScript" id="GDScript_3wy1v"]
 
@@ -137,15 +140,14 @@ linear_damp_mode = 1
 linear_damp = 0.08
 script = ExtResource("2_pjrb6")
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="LaunchSite/RigidBody2D"]
-position = Vector2(1, -35.408516)
-build_mode = 1
-polygon = PackedVector2Array(-1, 13.769978, 23, 13.769978, 23, 35.408512, -1, 35.408512)
+[node name="CollisionPolygon2D" type="CollisionShape2D" parent="LaunchSite/RigidBody2D"]
+position = Vector2(12, -10.819267)
+shape = SubResource("RectangleShape2D_4dugh")
 
 [node name="Sprite2D" type="Sprite2D" parent="LaunchSite/RigidBody2D"]
 
 [node name="ColorRect" type="ColorRect" parent="LaunchSite/RigidBody2D"]
-offset_top = -21.638536
+offset_top = -21.638535
 offset_right = 24.0
 
 [node name="Marker2D" type="Marker2D" parent="LaunchSite"]
@@ -161,10 +163,10 @@ show_behind_parent = true
 z_index = -10
 z_as_relative = false
 material = SubResource("ShaderMaterial_kfbq2")
-offset_left = -1490.0
-offset_top = -22626.0
-offset_right = 58935.0
-offset_bottom = 782.0
+offset_left = -1475.0
+offset_top = -22602.0
+offset_right = 58950.0
+offset_bottom = 806.0
 script = ExtResource("2_3wy1v")
 
 [node name="Test solid" type="StaticBody2D" parent="."]
