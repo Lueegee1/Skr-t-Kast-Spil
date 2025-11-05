@@ -37,29 +37,32 @@ position = Vector2(591, -329)
 
 [node name="XpLabel" type="Label" parent="UI/Camera2D/CanvasLayer"]
 custom_minimum_size = Vector2(5, 5)
-offset_left = -6.0
-offset_top = -20.0
-offset_right = 4.0
-offset_bottom = 3.0
-scale = Vector2(2.3674612, 2.1081169)
+offset_left = -56.0
+offset_top = -127.0
+offset_right = -46.0
+offset_bottom = -104.0
+scale = Vector2(2.4090874, 2.1431155)
+theme_override_font_sizes/font_size = 12
 text = "0"
 
 [node name="MoneyLabel" type="Label" parent="UI/Camera2D/CanvasLayer"]
 custom_minimum_size = Vector2(5, 5)
-offset_left = -14.0
-offset_top = -27.0
-offset_right = -4.0
-offset_bottom = -4.0
-scale = Vector2(3.3513756, 2.605238)
+offset_left = -81.0
+offset_top = -127.0
+offset_right = -71.0
+offset_bottom = -104.0
+scale = Vector2(2.4195173, 2.1346257)
+theme_override_font_sizes/font_size = 12
 text = "0"
 
 [node name="PrestigeLabel" type="Label" parent="UI/Camera2D/CanvasLayer"]
 custom_minimum_size = Vector2(5, 5)
-offset_left = 591.0
-offset_top = -329.0
-offset_right = 601.0
-offset_bottom = -306.0
-scale = Vector2(4.3902125, 3.0699625)
+offset_left = -105.0
+offset_top = -125.99999
+offset_right = -95.0
+offset_bottom = -102.99999
+scale = Vector2(2.39408, 2.0930214)
+theme_override_font_sizes/font_size = 12
 text = "0"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="UI/Camera2D/CanvasLayer"]
