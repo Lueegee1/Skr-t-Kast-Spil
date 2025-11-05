@@ -5,6 +5,9 @@ extends Node2D
 @onready var XpLabel = $UI/Camera2D/CanvasLayer/XpLabel
 @onready var MoneyLabel = $UI/Camera2D/CanvasLayer/MoneyLabel
 @onready var PrestigeLabel = $UI/Camera2D/CanvasLayer/PrestigeLabel
+var possible_angles = [45,45]
+
+
 var offsetXP = Vector2(0,0)
 var offsetMoney = Vector2(200,0)
 var offsetPrestige = Vector2(400,0)
