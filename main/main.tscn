@@ -70,7 +70,21 @@ offset_left = 958.0
 offset_top = -651.0
 offset_right = 1239.0
 offset_bottom = -611.0
-scale = Vector2(0.7734855, 16.107555)
+scale = Vector2(0.75782084, 14.627341)
+
+[node name="AngleUpgrade" type="Button" parent="UI/Camera2D/CanvasLayer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 1)
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="GravityUpgrade" type="Button" parent="UI/Camera2D/CanvasLayer/VBoxContainer"]
+layout_mode = 2
+
+[node name="FrictionUpgrade" type="Button" parent="UI/Camera2D/CanvasLayer/VBoxContainer"]
+layout_mode = 2
+
+[node name="ElasticityUpgrade" type="Button" parent="UI/Camera2D/CanvasLayer/VBoxContainer"]
+layout_mode = 2
 
 [node name="LaunchSite" type="Node2D" parent="."]
 
