@@ -9,7 +9,7 @@ friction = 0.5
 bounce = 0.5
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xwkvk"]
-size = Vector2(499, 115)
+size = Vector2(3458, 115.5)
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_53q0u")
@@ -51,6 +51,8 @@ scale = Vector2(0.7734855, 16.107555)
 [node name="RigidBody2D" type="RigidBody2D" parent="LaunchSite"]
 scale = Vector2(1, 1.0167047)
 physics_material_override = SubResource("PhysicsMaterial_xwkvk")
+linear_damp_mode = 1
+linear_damp = 0.08
 script = ExtResource("2_pjrb6")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="LaunchSite/RigidBody2D"]
@@ -68,5 +70,5 @@ script = ExtResource("3_xwkvk")
 [node name="Test solid" type="StaticBody2D" parent="."]
 
 [node name="Test collision shape" type="CollisionShape2D" parent="Test solid"]
-position = Vector2(217, 64)
+position = Vector2(1729, 57.75)
 shape = SubResource("RectangleShape2D_xwkvk")
