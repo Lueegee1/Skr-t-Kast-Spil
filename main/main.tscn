@@ -25,26 +25,27 @@ script = ExtResource("1_53q0u")
 position = Vector2(591, -329)
 
 [node name="XpLabel" type="Label" parent="UI/Camera2D"]
+custom_minimum_size = Vector2(5, 5)
 offset_left = -597.0
 offset_top = 309.0
-offset_right = -557.0
+offset_right = -587.0
 offset_bottom = 332.0
 scale = Vector2(2.3674612, 2.1081169)
 text = "0"
 
 [node name="MoneyLabel" type="Label" parent="UI/Camera2D"]
+custom_minimum_size = Vector2(5, 5)
 offset_left = -605.0
 offset_top = 302.0
-offset_right = -565.0
+offset_right = -595.0
 offset_bottom = 325.0
 scale = Vector2(3.3513756, 2.605238)
 text = "0"
 
 [node name="PrestigeLabel" type="Label" parent="UI/Camera2D"]
-offset_left = -605.0
-offset_top = 296.0
-offset_right = -565.0
-offset_bottom = 319.0
+custom_minimum_size = Vector2(5, 5)
+offset_right = 10.0
+offset_bottom = 23.0
 scale = Vector2(4.3902125, 3.0699625)
 text = "0"
 
