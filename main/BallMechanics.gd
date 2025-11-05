@@ -29,6 +29,7 @@ var BodyMaterial = PhysicsMaterial.new()               # makes a new PhysicsMate
 #------------------------------------------ Code ------------------------------------------
 
 func _ready() -> void:
+	Global.Ball = self
 	initiate_Launch()
 
 func initiate_Launch(): # sets up variables, waits a bit then calls the launch function LaunchRigidBody()
