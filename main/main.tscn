@@ -106,8 +106,8 @@ z_index = -10
 z_as_relative = false
 material = SubResource("ShaderMaterial_kfbq2")
 offset_left = -1490.0
-offset_top = -1209.0
-offset_right = 3467.0
+offset_top = -22626.0
+offset_right = 58935.0
 offset_bottom = 782.0
 script = ExtResource("2_3wy1v")
 

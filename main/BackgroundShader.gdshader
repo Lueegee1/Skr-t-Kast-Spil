@@ -1,6 +1,6 @@
 shader_type canvas_item;
 
-uniform vec2 grid_size = vec2(64.0, 64.0);
+uniform vec2 grid_size = vec2(128.0, 128.0);
 uniform float line_thickness = 1.5;
 uniform vec2 camera_origin;   // position of the top-left corner of the screen in world space
 uniform vec2 ball_position;   // world-space ball position
