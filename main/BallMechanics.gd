@@ -7,7 +7,7 @@ extends RigidBody2D
 #------------------------------------------ Setup ------------------------------------------
 
 # exported variables
-@export var launch_speed: float = 5000.0                # speed that the RigidBody2D is launched with
+@export var launch_speed: float = 500.0               # speed that the RigidBody2D is launched with
 @export var launch_angle: float = 45.0                 # angle of launch of the RigidBody2D
 @export var stop_threshold := 5.0                      # velocity threshold rquired for the RigidBody2D to be considered stopped
 @export var stop_delay := 1.5                          # seconds it must stay still to count as stopped

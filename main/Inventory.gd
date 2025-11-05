@@ -14,5 +14,7 @@ func _process(delta: float) -> void:
 	pass
 func _get_money(pos):
 	Global.money += pos
+	Global.money = int(Global.money)
 func _remove_money(price):
 	Global.money -= price
+	Global.money = int(Global.money)
