@@ -63,13 +63,10 @@ offset_right = 648.0
 offset_bottom = -282.0
 scale = Vector2(0.7734855, 16.107555)
 
-[node name="BackGround" type="ColorRect" parent="UI"]
-z_index = -4096
+[node name="BackGround" type="TextureRect" parent="UI"]
 material = SubResource("ShaderMaterial_kfbq2")
-offset_left = -28.0
-offset_top = -344.0
-offset_right = 1713.0
-offset_bottom = 791.0
+offset_right = 40.0
+offset_bottom = 40.0
 script = ExtResource("2_3wy1v")
 
 [node name="LaunchSite" type="Node2D" parent="."]
