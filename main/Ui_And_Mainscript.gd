@@ -24,3 +24,7 @@ func _process(_delta: float):# update position and money, xp and prestige
 	PrestigeLabel.position = offsetPrestige
 	Upgrades.position = offsetUpgrades
 	
+
+
+func _on_angle_changed(value: float):
+	pass # Replace with function body.
