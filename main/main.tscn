@@ -1,13 +1,21 @@
-[gd_scene load_steps=9 format=3 uid="uid://pmrbuelgkrua"]
+[gd_scene load_steps=11 format=3 uid="uid://pmrbuelgkrua"]
 
 [ext_resource type="Script" uid="uid://dskg7hx4b5lr" path="res://main/Ui_And_Mainscript.gd" id="1_53q0u"]
 [ext_resource type="Script" uid="uid://bah7bqvk6ivwr" path="res://main/Background.gd" id="2_3wy1v"]
+[ext_resource type="Shader" uid="uid://dfltqkw4htkvx" path="res://main/BackgroundShader.gdshader" id="2_kfbq2"]
 [ext_resource type="Script" uid="uid://c1vagnp7y22hl" path="res://main/BallMechanics.gd" id="2_pjrb6"]
 [ext_resource type="Script" uid="uid://dxurlyfv61set" path="res://main/Ground.gd" id="3_xwkvk"]
 [ext_resource type="Script" uid="uid://ede05gusyuy4" path="res://main/GroundCollision.gd" id="4_c651c"]
 
+[sub_resource type="GDScript" id="GDScript_3wy1v"]
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_kfbq2"]
-script = ExtResource("2_3wy1v")
+shader = ExtResource("2_kfbq2")
+shader_parameter/grid_size = Vector2(64, 64)
+shader_parameter/line_thickness = 1.5
+shader_parameter/ball_position = Vector2(0, 0)
+shader_parameter/light_radius = 150.0
+script = SubResource("GDScript_3wy1v")
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_xwkvk"]
 friction = 0.5
@@ -56,10 +64,14 @@ offset_right = 648.0
 offset_bottom = -282.0
 scale = Vector2(0.7734855, 16.107555)
 
-[node name="BackGround" type="TextureRect" parent="UI"]
+[node name="BackGround" type="ColorRect" parent="UI"]
+z_index = -4096
 material = SubResource("ShaderMaterial_kfbq2")
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = -28.0
+offset_top = -344.0
+offset_right = 1713.0
+offset_bottom = 791.0
+script = ExtResource("2_3wy1v")
 
 [node name="LaunchSite" type="Node2D" parent="."]
 
