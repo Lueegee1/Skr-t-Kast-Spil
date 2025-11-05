@@ -16,7 +16,7 @@ bounce = 0.5
 shader = ExtResource("2_kfbq2")
 shader_parameter/grid_size = Vector2(64, 64)
 shader_parameter/line_thickness = 1.5
-shader_parameter/world_offset = Vector2(0, 0)
+shader_parameter/camera_origin = Vector2(0, 0)
 shader_parameter/ball_position = Vector2(0, 0)
 shader_parameter/light_radius = 150.0
 script = SubResource("GDScript_3wy1v")
@@ -66,7 +66,21 @@ offset_left = 958.0
 offset_top = -651.0
 offset_right = 1239.0
 offset_bottom = -611.0
-scale = Vector2(0.7734855, 16.107555)
+scale = Vector2(0.75782084, 14.627341)
+
+[node name="AngleUpgrade" type="Button" parent="UI/Camera2D/CanvasLayer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 1)
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="GravityUpgrade" type="Button" parent="UI/Camera2D/CanvasLayer/VBoxContainer"]
+layout_mode = 2
+
+[node name="FrictionUpgrade" type="Button" parent="UI/Camera2D/CanvasLayer/VBoxContainer"]
+layout_mode = 2
+
+[node name="ElasticityUpgrade" type="Button" parent="UI/Camera2D/CanvasLayer/VBoxContainer"]
+layout_mode = 2
 
 [node name="LaunchSite" type="Node2D" parent="."]
 
