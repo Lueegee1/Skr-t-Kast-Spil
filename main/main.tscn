@@ -86,6 +86,10 @@ polygon = PackedVector2Array(-1, 13.769978, 23, 13.769978, 23, 35.408512, -1, 35
 
 [node name="Sprite2D" type="Sprite2D" parent="LaunchSite/RigidBody2D"]
 
+[node name="ColorRect" type="ColorRect" parent="LaunchSite/RigidBody2D"]
+offset_top = -21.638536
+offset_right = 24.0
+
 [node name="Marker2D" type="Marker2D" parent="LaunchSite"]
 
 [node name="Ground" type="Node2D" parent="."]
@@ -100,9 +104,9 @@ z_index = -10
 z_as_relative = false
 material = SubResource("ShaderMaterial_kfbq2")
 offset_left = -1490.0
-offset_top = -1200.0
+offset_top = -1209.0
 offset_right = 3467.0
-offset_bottom = 791.0
+offset_bottom = 782.0
 
 [node name="Test solid" type="StaticBody2D" parent="."]
 script = ExtResource("4_c651c")
