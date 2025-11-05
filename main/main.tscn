@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://pmrbuelgkrua"]
+[gd_scene load_steps=12 format=3 uid="uid://pmrbuelgkrua"]
 
 [ext_resource type="Script" uid="uid://dskg7hx4b5lr" path="res://main/Ui_And_Mainscript.gd" id="1_53q0u"]
 [ext_resource type="Script" uid="uid://bah7bqvk6ivwr" path="res://main/Background.gd" id="2_3wy1v"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://c1vagnp7y22hl" path="res://main/BallMechanics.gd" id="2_pjrb6"]
 [ext_resource type="Script" uid="uid://dxurlyfv61set" path="res://main/Ground.gd" id="3_xwkvk"]
 [ext_resource type="Script" uid="uid://ede05gusyuy4" path="res://main/GroundCollision.gd" id="4_c651c"]
+[ext_resource type="Script" path="res://main/Inventory.gd" id="7_4dugh"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_xwkvk"]
 friction = 0.5
@@ -131,3 +132,6 @@ script = ExtResource("4_c651c")
 [node name="Test collision shape" type="CollisionShape2D" parent="Test solid"]
 position = Vector2(1729, 57.75)
 shape = SubResource("RectangleShape2D_xwkvk")
+
+[node name="Node" type="Node" parent="."]
+script = ExtResource("7_4dugh")
