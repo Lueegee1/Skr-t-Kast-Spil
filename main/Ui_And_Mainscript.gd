@@ -5,12 +5,14 @@ extends Node2D
 @onready var XpLabel = $UI/Camera2D/CanvasLayer/XpLabel
 @onready var MoneyLabel = $UI/Camera2D/CanvasLayer/MoneyLabel
 @onready var PrestigeLabel = $UI/Camera2D/CanvasLayer/PrestigeLabel
+@onready var Upgrades = $UI/Camera2D/CanvasLayer/VBoxContainer
 var possible_angles = [45,45]
 
 
 var offsetXP = Vector2(0,0)
 var offsetMoney = Vector2(200,0)
 var offsetPrestige = Vector2(400,0)
+var offsetUpgrades = Vector2(800,0)
 	
 func _process(_delta: float):# update position and money, xp and prestige
 	Camera.global_position = RigidBody.global_position #updates camera position
@@ -20,4 +22,5 @@ func _process(_delta: float):# update position and money, xp and prestige
 	XpLabel.position = offsetXP
 	MoneyLabel.position = offsetMoney
 	PrestigeLabel.position = offsetPrestige
+	Upgrades.position = offsetUpgrades
 	

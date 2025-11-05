@@ -62,25 +62,68 @@ scale = Vector2(2.39408, 2.0930214)
 theme_override_font_sizes/font_size = 12
 
 [node name="VBoxContainer" type="VBoxContainer" parent="UI/Camera2D/CanvasLayer"]
-offset_left = 958.0
-offset_top = -651.0
-offset_right = 1239.0
-offset_bottom = -611.0
-scale = Vector2(0.75782084, 14.627341)
+anchors_preset = -1
+offset_left = 525.00006
+offset_top = -650.0
+offset_right = 806.0001
+offset_bottom = -432.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.0557145, 1.3568997)
+size_flags_vertical = 4
+
+[node name="Title" type="Label" parent="UI/Camera2D/CanvasLayer/VBoxContainer"]
+layout_mode = 2
+size_flags_stretch_ratio = 5.0
+theme_override_font_sizes/font_size = 10
+text = "Upgrades:"
+
+[node name="Angle_Label" type="Label" parent="UI/Camera2D/CanvasLayer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 1)
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_font_sizes/font_size = 8
+text = "Change Angle"
+
+[node name="Angle" type="HSlider" parent="UI/Camera2D/CanvasLayer/VBoxContainer"]
+layout_mode = 2
 
 [node name="AngleUpgrade" type="Button" parent="UI/Camera2D/CanvasLayer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 1)
 layout_mode = 2
-size_flags_vertical = 4
+size_flags_vertical = 8
+theme_override_font_sizes/font_size = 8
+text = "Upgrade Angle"
 
 [node name="GravityUpgrade" type="Button" parent="UI/Camera2D/CanvasLayer/VBoxContainer"]
 layout_mode = 2
+theme_override_font_sizes/font_size = 8
+text = "Upgrade Gravity"
 
 [node name="FrictionUpgrade" type="Button" parent="UI/Camera2D/CanvasLayer/VBoxContainer"]
 layout_mode = 2
+theme_override_font_sizes/font_size = 8
+text = "Upgrade Friction"
 
 [node name="ElasticityUpgrade" type="Button" parent="UI/Camera2D/CanvasLayer/VBoxContainer"]
 layout_mode = 2
+theme_override_font_sizes/font_size = 8
+text = "Upgrade Elasticity"
+
+[node name="SpeedUpgrade" type="Button" parent="UI/Camera2D/CanvasLayer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+text = "Upgrade Speed"
+
+[node name="AirResistanceUpgrade" type="Button" parent="UI/Camera2D/CanvasLayer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+text = "Upgrade Air Resistance"
+
+[node name="Shape" type="Button" parent="UI/Camera2D/CanvasLayer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+text = "Change Shape"
 
 [node name="LaunchSite" type="Node2D" parent="."]
 
