@@ -6,7 +6,7 @@
 [ext_resource type="Script" uid="uid://c1vagnp7y22hl" path="res://main/BallMechanics.gd" id="2_pjrb6"]
 [ext_resource type="Script" uid="uid://dxurlyfv61set" path="res://main/Ground.gd" id="3_xwkvk"]
 [ext_resource type="Script" uid="uid://ede05gusyuy4" path="res://main/GroundCollision.gd" id="4_c651c"]
-[ext_resource type="Script" path="res://main/Inventory.gd" id="7_4dugh"]
+[ext_resource type="Script" uid="uid://b42hswy45scj5" path="res://main/Inventory.gd" id="7_4dugh"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_xwkvk"]
 friction = 0.5
