@@ -6,6 +6,10 @@
 [ext_resource type="Script" uid="uid://dxurlyfv61set" path="res://main/Ground.gd" id="3_xwkvk"]
 [ext_resource type="Script" uid="uid://ede05gusyuy4" path="res://main/GroundCollision.gd" id="4_c651c"]
 
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_xwkvk"]
+friction = 0.5
+bounce = 0.5
+
 [sub_resource type="GDScript" id="GDScript_3wy1v"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_kfbq2"]
@@ -15,10 +19,6 @@ shader_parameter/line_thickness = 1.5
 shader_parameter/ball_position = Vector2(0, 0)
 shader_parameter/light_radius = 150.0
 script = SubResource("GDScript_3wy1v")
-
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_xwkvk"]
-friction = 0.5
-bounce = 0.5
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xwkvk"]
 size = Vector2(3458, 115.5)
@@ -67,14 +67,6 @@ offset_right = 1239.0
 offset_bottom = -611.0
 scale = Vector2(0.7734855, 16.107555)
 
-[node name="BackGround" type="ColorRect" parent="UI"]
-z_index = -4096
-material = SubResource("ShaderMaterial_kfbq2")
-offset_left = -28.0
-offset_top = -344.0
-offset_right = 1713.0
-offset_bottom = 791.0
-
 [node name="LaunchSite" type="Node2D" parent="."]
 
 [node name="RigidBody2D" type="RigidBody2D" parent="LaunchSite"]
@@ -94,7 +86,20 @@ polygon = PackedVector2Array(-1, 13.769978, 23, 13.769978, 23, 35.408512, -1, 35
 [node name="Marker2D" type="Marker2D" parent="LaunchSite"]
 
 [node name="Ground" type="Node2D" parent="."]
+top_level = true
+visibility_layer = 3
+z_index = 1000
 script = ExtResource("3_xwkvk")
+
+[node name="BackGround" type="ColorRect" parent="Ground"]
+show_behind_parent = true
+z_index = -10
+z_as_relative = false
+material = SubResource("ShaderMaterial_kfbq2")
+offset_left = -1490.0
+offset_top = -1200.0
+offset_right = 3467.0
+offset_bottom = 791.0
 
 [node name="Test solid" type="StaticBody2D" parent="."]
 script = ExtResource("4_c651c")
