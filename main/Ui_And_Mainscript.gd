@@ -16,6 +16,12 @@ var offsetMoney = Vector2(200,0)
 var offsetPrestige = Vector2(400,0)
 var offsetUpgrades = Vector2(800,0)
 var angle_price = 5
+var friction_price = 5 
+var elasticity_price = 5
+var speed_price = 5
+var air_resistance_price = 5
+var shape_price = 5
+var gravity_price = 5
 	
 func _process(_delta: float):# update position and money, xp and prestige
 	Camera.global_position = RigidBody.global_position #updates camera position
@@ -38,30 +44,44 @@ func _on_angle_upgrade_pressed() -> void:
 		if angle.min_value > 0 and angle.max_value < 90:
 			angle.min_value = angle.min_value - 5
 			angle.max_value = angle.max_value + 5
+			angle_price *= 2
 		
 
 
 func _on_gravity_upgrade_pressed() -> void:
-	if Global.Ball.gravity > 0.05:
-		Global.Ball.gravity = Global.Ball.gravity - 0.05
-	
-
+	if Global.money > gravity_price:
+		if Global.Ball.gravity > 0.05:
+			Global.Ball.gravity = Global.Ball.gravity - 0.05
+			Global.money = Global.money - gravity_price
+			gravity_price *= 2
 
 func _on_friction_upgrade_pressed() -> void:
-	pass # Replace with function body.
+	if Global.money > friction_price:
+		if Global.Ball.ground_fricion > 0.05:
+			Global.Ball.ground_friction = Global.Ball.ground_friction - 0.05
+			Global.money = Global.money - friction_price
+			friction_price *= 2
 
 
 func _on_elasticity_upgrade_pressed():
-	Global.Ball.ground_elasticity = Global.Ball.ground_elasticity + 5
+	if Global.money > elasticity_price:
+		Global.Ball.ground_elasticity = Global.Ball.ground_elasticity + 5
+		Global.money = Global.money - elasticity_price
+		elasticity_price *= 2
 
 
-func _on_speed_upgrade_pressed() -> void:
-	Global.Ball.launch_speed = Global.Ball.launch_speed * 1.05
+func _on_speed_upgrade_pressed():
+	if Global.money > speed_price:
+		Global.Ball.launch_speed = Global.Ball.launch_speed * 1.05
+		Global.money = Global.money - speed_price
+		speed_price *= 2
 
 
 func _on_air_resistance_upgrade_pressed() -> void:
-	pass # Replace with function body.
-
+	if Global.money > air_resistance_price:
+		if Global.Ball.air_resistance > 0.05:
+			Global.Ball.air_resistance -= 0.05
+			Global.money = Global.money - air_resistance_price
 
 func _on_shape_changed() -> void:
 	pass # Replace with function body.
