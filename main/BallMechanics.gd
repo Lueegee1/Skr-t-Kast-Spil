@@ -50,6 +50,7 @@ func _physics_process(delta): # called every frame
 	else:
 		still_time = 0
 	if still_time >= stop_delay:
+		Global.Inventory._get_money(position.x)
 		initiate_Launch()
 
 func reload_variables(): # reloads all variables used in physics calculations
