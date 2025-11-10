@@ -46,6 +46,7 @@ func launchRigidBody(angle): # launch RigidBody at input angle
 
 func _physics_process(delta): # called every frame
 	Global.Ground._ground_update(position.x)
+	Global.Background._background_update(position)
 # RigidBody is not moving check
 	if linear_velocity.length() < stop_threshold:
 		still_time += delta

@@ -141,7 +141,7 @@ linear_damp_mode = 1
 linear_damp = 0.08
 angular_damp = 100.0
 script = ExtResource("2_pjrb6")
-launch_speed = 10000.0
+launch_speed = 100000.0
 
 [node name="CollisionPolygon2D" type="CollisionShape2D" parent="LaunchSite/RigidBody2D"]
 position = Vector2(12, -10.819267)
@@ -167,8 +167,8 @@ z_index = -10
 z_as_relative = false
 material = SubResource("ShaderMaterial_kfbq2")
 offset_left = -1396.0
-offset_top = -22545.0
-offset_right = 59350.0
+offset_top = -28058.0
+offset_right = 58544.0
 offset_bottom = 863.0
 script = ExtResource("2_3wy1v")
 

@@ -8,3 +8,4 @@ var GameController
 var Ball
 var Inventory
 var Ground
+var Background
