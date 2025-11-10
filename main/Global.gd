@@ -7,3 +7,4 @@ var prestige = 0
 var GameController
 var Ball
 var Inventory
+var Ground

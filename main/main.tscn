@@ -27,7 +27,7 @@ shader_parameter/light_radius = 150.0
 script = SubResource("GDScript_3wy1v")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xwkvk"]
-size = Vector2(3458, 115.5)
+size = Vector2(3458, 5886)
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_53q0u")
@@ -139,7 +139,10 @@ physics_material_override = SubResource("PhysicsMaterial_xwkvk")
 inertia = 1000.0
 linear_damp_mode = 1
 linear_damp = 0.08
+angular_damp = 100.0
 script = ExtResource("2_pjrb6")
+launch_speed = 10000.0
+launch_angle = 45.0
 
 [node name="CollisionPolygon2D" type="CollisionShape2D" parent="LaunchSite/RigidBody2D"]
 position = Vector2(12, -10.819267)
@@ -164,17 +167,17 @@ show_behind_parent = true
 z_index = -10
 z_as_relative = false
 material = SubResource("ShaderMaterial_kfbq2")
-offset_left = -1475.0
-offset_top = -22602.0
-offset_right = 58950.0
-offset_bottom = 806.0
+offset_left = -1396.0
+offset_top = -22545.0
+offset_right = 59350.0
+offset_bottom = 863.0
 script = ExtResource("2_3wy1v")
 
 [node name="Test solid" type="StaticBody2D" parent="."]
 script = ExtResource("4_c651c")
 
 [node name="Test collision shape" type="CollisionShape2D" parent="Test solid"]
-position = Vector2(1729, 57.75)
+position = Vector2(1729, 2943)
 shape = SubResource("RectangleShape2D_xwkvk")
 
 [node name="Node" type="Node" parent="."]
