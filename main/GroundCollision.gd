@@ -12,7 +12,7 @@ func _ready() -> void:
 #Updates width of ground collision with ball position
 func _ground_update(pos):
 	Ground.shape.size = start_size + 5*Vector2(pos,0)
-	print(Ground.shape.size)
+
 
 #func _process(delta: float) -> void:
 #	pass

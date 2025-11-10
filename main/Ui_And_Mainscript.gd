@@ -23,16 +23,21 @@ var air_resistance_price = 5
 var shape_price = 5
 var gravity_price = 5
 
-# Camera movement variables
-var camera_follow_strength := 5.0   # higher = faster follow, lower = more lag
-var camera_drag_factor := 0.002     # how much velocity affects the camera offset
-var camera_offset := Vector2.ZERO   # temporary offset for drag effect when bofy is moving
-	
-func _physics_process(delta: float):# update position and money, xp and prestige
-	update_camera(delta)
-	XpLabel.text = "Xp: " + str(Global.exp)
-	MoneyLabel.text = "Money: " + str(Global.money)
-	PrestigeLabel.text = "Prestige: " + str(Global.prestige)
+func _rounding(num):
+	var exponent = int(log(num+1)/log(10))
+	var suffixes = ["","K","M","B","T","Qu","Qi","Sx","Sp","O","N","Dc"]
+	for i in range(suffixes.size()):
+		if (3*i) <= exponent and exponent <(3+3*i):
+			exponent = 3*i
+			return str((round(float(num)/(10**exponent)*10))/10) + suffixes[i]
+		else:
+			pass
+
+func _process(_delta: float):# update position and money, xp and prestige
+	Camera.global_position = RigidBody.global_position #updates camera position
+	XpLabel.text = "Xp: " + _rounding(Global.exp)
+	MoneyLabel.text = "Money: " + _rounding(Global.money)
+	PrestigeLabel.text = "Prestige: " + _rounding(Global.prestige)
 	XpLabel.position = offsetXP
 	MoneyLabel.position = offsetMoney
 	PrestigeLabel.position = offsetPrestige
@@ -90,9 +95,3 @@ func _on_air_resistance_upgrade_pressed() -> void:
 
 func _on_shape_changed() -> void:
 	pass # Replace with function body.
-
-func update_camera(delta: float) -> void:
-	var ball = Global.Ball
-	var target_pos: Vector2 = ball.global_position
-	var desired_camera_pos = target_pos + camera_offset
-	Camera.global_position = Camera.global_position.lerp(desired_camera_pos, delta * camera_follow_strength)
