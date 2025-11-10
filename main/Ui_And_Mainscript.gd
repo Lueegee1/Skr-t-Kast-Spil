@@ -28,7 +28,7 @@ var camera_follow_strength := 5.0   # higher = faster follow, lower = more lag
 var camera_drag_factor := 0.002     # how much velocity affects the camera offset
 var camera_offset := Vector2.ZERO   # temporary offset for drag effect when bofy is moving
 	
-func _process(delta: float):# update position and money, xp and prestige
+func _physics_process(delta: float):# update position and money, xp and prestige
 	update_camera(delta)
 	XpLabel.text = "Xp: " + str(Global.exp)
 	MoneyLabel.text = "Money: " + str(Global.money)
