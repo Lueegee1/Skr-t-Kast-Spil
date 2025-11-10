@@ -1,0 +1,190 @@
+[gd_scene load_steps=13 format=3 uid="uid://pmrbuelgkrua"]
+
+[ext_resource type="Script" uid="uid://dskg7hx4b5lr" path="res://main/Ui_And_Mainscript.gd" id="1_53q0u"]
+[ext_resource type="Script" uid="uid://bah7bqvk6ivwr" path="res://main/Background.gd" id="2_3wy1v"]
+[ext_resource type="Shader" uid="uid://bo8l0sgsycmsd" path="res://main/BackgroundShader.gdshader" id="2_kfbq2"]
+[ext_resource type="Script" uid="uid://c1vagnp7y22hl" path="res://main/BallMechanics.gd" id="2_pjrb6"]
+[ext_resource type="Script" uid="uid://dxurlyfv61set" path="res://main/Ground.gd" id="3_xwkvk"]
+[ext_resource type="Script" uid="uid://ede05gusyuy4" path="res://main/GroundCollision.gd" id="4_c651c"]
+[ext_resource type="Script" uid="uid://b42hswy45scj5" path="res://main/Inventory.gd" id="7_4dugh"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_xwkvk"]
+friction = 0.5
+bounce = 0.5
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4dugh"]
+size = Vector2(24, 21.802841)
+
+[sub_resource type="GDScript" id="GDScript_3wy1v"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_kfbq2"]
+shader = ExtResource("2_kfbq2")
+shader_parameter/grid_size = Vector2(64, 64)
+shader_parameter/line_thickness = 1.5
+shader_parameter/camera_origin = Vector2(0, 0)
+shader_parameter/ball_position = Vector2(0, 0)
+shader_parameter/light_radius = 150.0
+script = SubResource("GDScript_3wy1v")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xwkvk"]
+size = Vector2(3458, 115.5)
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_53q0u")
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="Camera2D" type="Camera2D" parent="UI"]
+position = Vector2(591, -329)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="UI/Camera2D"]
+layer = 1000
+
+[node name="XpLabel" type="Label" parent="UI/Camera2D/CanvasLayer"]
+custom_minimum_size = Vector2(5, 5)
+offset_left = -56.0
+offset_top = -127.0
+offset_right = -46.0
+offset_bottom = -104.0
+scale = Vector2(2.4090874, 2.1431155)
+theme_override_font_sizes/font_size = 12
+text = "0"
+
+[node name="MoneyLabel" type="Label" parent="UI/Camera2D/CanvasLayer"]
+custom_minimum_size = Vector2(5, 5)
+offset_left = -81.0
+offset_top = -127.0
+offset_right = -71.0
+offset_bottom = -104.0
+scale = Vector2(2.4195173, 2.1346257)
+theme_override_font_sizes/font_size = 12
+text = "0"
+
+[node name="PrestigeLabel" type="Label" parent="UI/Camera2D/CanvasLayer"]
+custom_minimum_size = Vector2(5, 5)
+offset_left = -105.0
+offset_top = -125.99999
+offset_right = -95.0
+offset_bottom = -102.99999
+scale = Vector2(2.39408, 2.0930214)
+theme_override_font_sizes/font_size = 12
+text = "0"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/Camera2D/CanvasLayer"]
+offset_left = 525.00006
+offset_top = -650.0
+offset_right = 806.0001
+offset_bottom = -432.0
+scale = Vector2(1.0557145, 1.3568997)
+size_flags_vertical = 4
+
+[node name="Title" type="Label" parent="UI/Camera2D/CanvasLayer/VBoxContainer"]
+layout_mode = 2
+size_flags_stretch_ratio = 5.0
+theme_override_font_sizes/font_size = 10
+text = "Upgrades:"
+
+[node name="Angle_Label" type="Label" parent="UI/Camera2D/CanvasLayer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 1)
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_font_sizes/font_size = 8
+text = "Change Angle"
+
+[node name="Angle" type="HSlider" parent="UI/Camera2D/CanvasLayer/VBoxContainer"]
+layout_mode = 2
+
+[node name="AngleUpgrade" type="Button" parent="UI/Camera2D/CanvasLayer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 1)
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_font_sizes/font_size = 8
+text = "Upgrade Angle"
+
+[node name="GravityUpgrade" type="Button" parent="UI/Camera2D/CanvasLayer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+text = "Upgrade Gravity"
+
+[node name="FrictionUpgrade" type="Button" parent="UI/Camera2D/CanvasLayer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+text = "Upgrade Friction"
+
+[node name="ElasticityUpgrade" type="Button" parent="UI/Camera2D/CanvasLayer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+text = "Upgrade Elasticity"
+
+[node name="SpeedUpgrade" type="Button" parent="UI/Camera2D/CanvasLayer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+text = "Upgrade Speed"
+
+[node name="AirResistanceUpgrade" type="Button" parent="UI/Camera2D/CanvasLayer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+text = "Upgrade Air Resistance"
+
+[node name="Shape" type="Button" parent="UI/Camera2D/CanvasLayer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+text = "Change Shape"
+
+[node name="LaunchSite" type="Node2D" parent="."]
+
+[node name="RigidBody2D" type="RigidBody2D" parent="LaunchSite"]
+scale = Vector2(1, 1.0167047)
+physics_material_override = SubResource("PhysicsMaterial_xwkvk")
+inertia = 1000.0
+linear_damp_mode = 1
+linear_damp = 0.08
+script = ExtResource("2_pjrb6")
+
+[node name="CollisionPolygon2D" type="CollisionShape2D" parent="LaunchSite/RigidBody2D"]
+position = Vector2(12, -10.819267)
+shape = SubResource("RectangleShape2D_4dugh")
+
+[node name="Sprite2D" type="Sprite2D" parent="LaunchSite/RigidBody2D"]
+
+[node name="ColorRect" type="ColorRect" parent="LaunchSite/RigidBody2D"]
+offset_top = -21.638535
+offset_right = 24.0
+
+[node name="Marker2D" type="Marker2D" parent="LaunchSite"]
+
+[node name="Ground" type="Node2D" parent="."]
+top_level = true
+visibility_layer = 3
+z_index = 10
+script = ExtResource("3_xwkvk")
+
+[node name="BackGround" type="ColorRect" parent="Ground"]
+show_behind_parent = true
+z_index = -10
+z_as_relative = false
+material = SubResource("ShaderMaterial_kfbq2")
+offset_left = -1475.0
+offset_top = -22602.0
+offset_right = 58950.0
+offset_bottom = 806.0
+script = ExtResource("2_3wy1v")
+
+[node name="Test solid" type="StaticBody2D" parent="."]
+script = ExtResource("4_c651c")
+
+[node name="Test collision shape" type="CollisionShape2D" parent="Test solid"]
+position = Vector2(1729, 57.75)
+shape = SubResource("RectangleShape2D_xwkvk")
+
+[node name="Node" type="Node" parent="."]
+script = ExtResource("7_4dugh")
+
+[connection signal="value_changed" from="UI/Camera2D/CanvasLayer/VBoxContainer/Angle" to="." method="_on_angle_changed"]
+[connection signal="pressed" from="UI/Camera2D/CanvasLayer/VBoxContainer/AngleUpgrade" to="." method="_on_angle_upgrade_pressed"]
+[connection signal="pressed" from="UI/Camera2D/CanvasLayer/VBoxContainer/GravityUpgrade" to="." method="_on_gravity_upgrade_pressed"]
+[connection signal="pressed" from="UI/Camera2D/CanvasLayer/VBoxContainer/FrictionUpgrade" to="." method="_on_friction_upgrade_pressed"]
+[connection signal="pressed" from="UI/Camera2D/CanvasLayer/VBoxContainer/ElasticityUpgrade" to="." method="_on_elasticity_upgrade_pressed"]
+[connection signal="pressed" from="UI/Camera2D/CanvasLayer/VBoxContainer/SpeedUpgrade" to="." method="_on_speed_upgrade_pressed"]
+[connection signal="pressed" from="UI/Camera2D/CanvasLayer/VBoxContainer/AirResistanceUpgrade" to="." method="_on_air_resistance_upgrade_pressed"]
+[connection signal="pressed" from="UI/Camera2D/CanvasLayer/VBoxContainer/Shape" to="." method="_on_shape_changed"]
