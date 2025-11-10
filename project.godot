@@ -18,3 +18,7 @@ boot_splash/bg_color=Color(0.002549314, 0.002549314, 0.0028502517, 1)
 [autoload]
 
 Global="*res://main/Global.gd"
+
+[dotnet]
+
+project/assembly_name="SkråtKastSpil"

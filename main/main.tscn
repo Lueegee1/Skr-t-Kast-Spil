@@ -136,6 +136,7 @@ text = "Change Shape"
 [node name="RigidBody2D" type="RigidBody2D" parent="LaunchSite"]
 scale = Vector2(1, 1.0167047)
 physics_material_override = SubResource("PhysicsMaterial_xwkvk")
+inertia = 1000.0
 linear_damp_mode = 1
 linear_damp = 0.08
 script = ExtResource("2_pjrb6")
