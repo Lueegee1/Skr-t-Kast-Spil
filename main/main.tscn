@@ -134,6 +134,11 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 8
 text = "Change Shape"
 
+[node name="Settings" type="Button" parent="UI/Camera2D/CanvasLayer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "Settings"
+
 [node name="LaunchSite" type="Node2D" parent="."]
 
 [node name="RigidBody2D" type="RigidBody2D" parent="LaunchSite"]
@@ -172,6 +177,7 @@ offset_left = -1366.0
 offset_top = -28058.0
 offset_right = 58574.0
 offset_bottom = 863.0
+scale = Vector2(1, 0.99992716)
 script = ExtResource("2_3wy1v")
 
 [node name="Test solid" type="StaticBody2D" parent="."]
@@ -192,3 +198,4 @@ script = ExtResource("7_4dugh")
 [connection signal="pressed" from="UI/Camera2D/CanvasLayer/VBoxContainer/SpeedUpgrade" to="." method="_on_speed_upgrade_pressed"]
 [connection signal="pressed" from="UI/Camera2D/CanvasLayer/VBoxContainer/AirResistanceUpgrade" to="." method="_on_air_resistance_upgrade_pressed"]
 [connection signal="pressed" from="UI/Camera2D/CanvasLayer/VBoxContainer/Shape" to="." method="_on_shape_changed"]
+[connection signal="pressed" from="UI/Camera2D/CanvasLayer/VBoxContainer/Settings" to="." method="_on_settings_button_pressed"]

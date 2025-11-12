@@ -9,6 +9,7 @@ extends Node2D
 @onready var Upgrades = $UI/Camera2D/CanvasLayer/VBoxContainer
 @onready var angle = $UI/Camera2D/CanvasLayer/VBoxContainer/Angle
 @onready var shapes = ["4kant", "5kant", "6kant", "7kant", "8kant","9kant","10kant"]
+@onready var settings_menu = preload("res://settings.tscn")
 var possible_angles = [45,45]
 
 
@@ -103,3 +104,8 @@ func _on_air_resistance_upgrade_pressed() -> void:
 #		shape_number += 1
 #		Global.money -= change_shape_price
 #		print(shapes[shape_number])
+
+
+func _on_settings_button_pressed():
+	var menu = settings_menu.instantiate()
+	add_child(menu)
