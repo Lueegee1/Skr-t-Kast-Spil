@@ -67,7 +67,7 @@ func _on_gravity_upgrade_pressed():
 
 func _on_friction_upgrade_pressed():
 	if Global.money > friction_price:
-		if Global.Ball.ground_fricion > 0.05:
+		if Global.Ball.ground_friction > 0.05:
 			Global.Ball.ground_friction = Global.Ball.ground_friction - 0.05
 			Global.money = Global.money - friction_price
 			friction_price *= 2
@@ -89,8 +89,8 @@ func _on_speed_upgrade_pressed():
 
 func _on_air_resistance_upgrade_pressed() -> void:
 	if Global.money > air_resistance_price:
-		if Global.Ball.air_resistance > 0.05:
-			Global.Ball.air_resistance -= 0.05
+		if Global.Ball.air_resistance > 0.001:
+			Global.Ball.air_resistance -= 0.001
 			Global.money = Global.money - air_resistance_price
 
 func _on_shape_changed() -> void:

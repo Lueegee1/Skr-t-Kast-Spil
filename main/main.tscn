@@ -93,6 +93,9 @@ text = "Change Angle"
 
 [node name="Angle" type="HSlider" parent="UI/Camera2D/CanvasLayer/VBoxContainer"]
 layout_mode = 2
+min_value = 40.0
+max_value = 50.0
+value = 40.0
 
 [node name="AngleUpgrade" type="Button" parent="UI/Camera2D/CanvasLayer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 1)
@@ -165,9 +168,9 @@ show_behind_parent = true
 z_index = -10
 z_as_relative = false
 material = SubResource("ShaderMaterial_kfbq2")
-offset_left = -1396.0
+offset_left = -1366.0
 offset_top = -28058.0
-offset_right = 58544.0
+offset_right = 58574.0
 offset_bottom = 863.0
 script = ExtResource("2_3wy1v")
 
