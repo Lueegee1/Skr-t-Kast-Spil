@@ -72,32 +72,18 @@ func _on_gravity_upgrade_pressed():
 	buy_and_upgrade(gravity_price,"gravity", -0.05, 2)
 
 func _on_friction_upgrade_pressed():
-	if Global.money > friction_price:
-		if Global.Ball.ground_friction > 0.05:
-			Global.Ball.ground_friction = Global.Ball.ground_friction - 0.05
-			Global.money = Global.money - friction_price
-			friction_price *= 2
-
+	buy_and_upgrade(friction_price, "ground_friction", -0.05, 2)
 
 func _on_elasticity_upgrade_pressed():
-	if Global.money > elasticity_price:
-		Global.Ball.ground_elasticity = Global.Ball.ground_elasticity + 5
-		Global.money = Global.money - elasticity_price
-		elasticity_price *= 2
-
+	buy_and_upgrade(elasticity_price, "ground_elasticity", 5, 2)
 
 func _on_speed_upgrade_pressed():
-	if Global.money > speed_price:
-		Global.Ball.launch_speed = Global.Ball.launch_speed * 1.05
-		Global.money = Global.money - speed_price
-		speed_price *= 2
+	buy_and_upgrade(speed_price, "launch_speed", 100, 2)
 
 
-func _on_air_resistance_upgrade_pressed() -> void:
-	if Global.money > air_resistance_price:
-		if Global.Ball.air_resistance > 0.001:
-			Global.Ball.air_resistance -= 0.001
-			Global.money = Global.money - air_resistance_price
+func _on_air_resistance_upgrade_pressed():
+	buy_and_upgrade(air_resistance_price, "air_resistance", -0.001, 2)
+
 
 #func_on_shape_changed():
 #if Global.money > change_shape_price:
