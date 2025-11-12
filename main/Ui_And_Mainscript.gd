@@ -48,13 +48,12 @@ func _process(_delta: float):# update position and money, xp and prestige
 	Upgrades.position = offsetUpgrades
 	
 
-#func buy_and_upgrade(cost: float, property_name: string, upgrade_value: float, multiplier: float, min_value := -INF, max_value := INF):
-#	if Global.money > cost:
-#		var current_property = Global.Ball.get("property_name")
-#		if  Global.Ball.current_property + upgrade_value > min_value and Global.Ball.current_property + upgrade_value < max_value:
-#			Global.Ball.current_property += upgrade_value
-#			Global.money -= cost
-#			cost *= multiplier
+func buy_and_upgrade(cost: float, property_name: String, upgrade_value: float, multiplier: float, min_value := -INF, max_value := INF):
+	if Global.money > cost:
+		if  Global.Ball[property_name] + upgrade_value > min_value and Global.Ball[property_name] + upgrade_value < max_value:
+			Global.Ball[property_name] += upgrade_value
+			Global.money -= cost
+			cost *= multiplier
 
 func _on_angle_changed(value: float):
 	Global.Ball.launch_angle = value
@@ -70,11 +69,7 @@ func _on_angle_upgrade_pressed():
 
 
 func _on_gravity_upgrade_pressed():
-	if Global.money > gravity_price:
-		if Global.Ball.gravity > 0.05:
-			Global.Ball.gravity = Global.Ball.gravity - 0.05
-			Global.money = Global.money - gravity_price
-			gravity_price *= 2
+	buy_and_upgrade(gravity_price,"gravity", -0.05, 2)
 
 func _on_friction_upgrade_pressed():
 	if Global.money > friction_price:
