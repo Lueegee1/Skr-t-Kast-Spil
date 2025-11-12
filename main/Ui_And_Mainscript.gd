@@ -48,6 +48,13 @@ func _process(_delta: float):# update position and money, xp and prestige
 	Upgrades.position = offsetUpgrades
 	
 
+#func buy_and_upgrade(cost: float, property_name: string, upgrade_value: float, multiplier: float, min_value := -INF, max_value := INF):
+#	if Global.money > cost:
+#		var current_property = Global.Ball.get("property_name")
+#		if  Global.Ball.current_property + upgrade_value > min_value and Global.Ball.current_property + upgrade_value < max_value:
+#			Global.Ball.current_property += upgrade_value
+#			Global.money -= cost
+#			cost *= multiplier
 
 func _on_angle_changed(value: float):
 	Global.Ball.launch_angle = value

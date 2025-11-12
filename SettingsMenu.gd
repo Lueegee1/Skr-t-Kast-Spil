@@ -18,4 +18,3 @@ func _on_pressed():
 
 func _on_sound_value_changed(value: float):
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"), value)
-	print(value)
