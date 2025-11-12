@@ -8,6 +8,7 @@ extends Node2D
 @onready var PrestigeLabel = $UI/Camera2D/CanvasLayer/PrestigeLabel
 @onready var Upgrades = $UI/Camera2D/CanvasLayer/VBoxContainer
 @onready var angle = $UI/Camera2D/CanvasLayer/VBoxContainer/Angle
+@onready var shapes = ["4kant", "5kant", "6kant", "7kant", "8kant","9kant","10kant"]
 var possible_angles = [45,45]
 
 
@@ -22,6 +23,8 @@ var speed_price = 5
 var air_resistance_price = 5
 var shape_price = 5
 var gravity_price = 5
+var change_shape_price = 5
+var shape_number = 0
 
 func _rounding(num):
 	var exponent = int(log(num+1)/log(10))
@@ -93,5 +96,10 @@ func _on_air_resistance_upgrade_pressed() -> void:
 			Global.Ball.air_resistance -= 0.001
 			Global.money = Global.money - air_resistance_price
 
-func _on_shape_changed() -> void:
-	pass # Replace with function body.
+#func_on_shape_changed():
+#if Global.money > change_shape_price:
+#	if Global.Ball.collision.shape != $"10kant":
+#		Global.Ball.collision.shape = shapes[shape_number]
+#		shape_number += 1
+#		Global.money -= change_shape_price
+#		print(shapes[shape_number])
