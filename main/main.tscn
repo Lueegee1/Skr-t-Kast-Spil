@@ -141,7 +141,6 @@ linear_damp_mode = 1
 linear_damp = 0.08
 angular_damp = 100.0
 script = ExtResource("2_pjrb6")
-launch_speed = 100000.0
 
 [node name="CollisionPolygon2D" type="CollisionShape2D" parent="LaunchSite/RigidBody2D"]
 position = Vector2(12, -10.819267)
