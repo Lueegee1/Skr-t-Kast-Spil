@@ -39,6 +39,8 @@ text = "Sound control"
 
 [node name="Sound" type="HSlider" parent="CanvasLayer/Panel/VBoxContainer"]
 layout_mode = 2
+min_value = -60.0
+max_value = 0.0
 
 [node name="Button" type="Button" parent="CanvasLayer/Panel"]
 layout_mode = 0
