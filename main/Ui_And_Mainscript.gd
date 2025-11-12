@@ -49,7 +49,7 @@ func _on_angle_changed(value: float):
 	Global.Ball.launch_angle = value
 
 
-func _on_angle_upgrade_pressed() -> void:
+func _on_angle_upgrade_pressed():
 	if Global.money > angle_price:
 		if angle.min_value > 0 and angle.max_value < 90:
 			angle.min_value = angle.min_value - 5
@@ -58,14 +58,14 @@ func _on_angle_upgrade_pressed() -> void:
 		
 
 
-func _on_gravity_upgrade_pressed() -> void:
+func _on_gravity_upgrade_pressed():
 	if Global.money > gravity_price:
 		if Global.Ball.gravity > 0.05:
 			Global.Ball.gravity = Global.Ball.gravity - 0.05
 			Global.money = Global.money - gravity_price
 			gravity_price *= 2
 
-func _on_friction_upgrade_pressed() -> void:
+func _on_friction_upgrade_pressed():
 	if Global.money > friction_price:
 		if Global.Ball.ground_fricion > 0.05:
 			Global.Ball.ground_friction = Global.Ball.ground_friction - 0.05
