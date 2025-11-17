@@ -9,7 +9,8 @@ extends Node2D
 @onready var Upgrades = $UI/Camera2D/CanvasLayer/VBoxContainer
 @onready var angle = $UI/Camera2D/CanvasLayer/VBoxContainer/Angle
 @onready var shapes = ["4kant", "5kant", "6kant", "7kant", "8kant","9kant","10kant"]
-@onready var settings_menu = preload("res://settings.tscn")
+@onready var settings_menu = preload("res://main/settings.tscn")
+@onready var music_player = $Musicmanager
 var possible_angles = [45,45]
 
 
@@ -26,6 +27,10 @@ var shape_price = 5
 var gravity_price = 5
 var change_shape_price = 5
 var shape_number = 0
+
+func _ready() -> void:
+	#music
+	music_player.play_main_theme(load("res://Assets/Sound/Main theme loopable.wav"))
 
 func _rounding(num):
 	var exponent = int(log(num+1)/log(10))
@@ -46,6 +51,7 @@ func _process(_delta: float):# update position and money, xp and prestige
 	MoneyLabel.position = offsetMoney
 	PrestigeLabel.position = offsetPrestige
 	Upgrades.position = offsetUpgrades
+	
 	
 
 func buy_and_upgrade(cost: float, property_name: String, upgrade_value: float, multiplier: float, min_value := -INF, max_value := INF):

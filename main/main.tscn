@@ -1,8 +1,9 @@
-[gd_scene load_steps=16 format=3 uid="uid://pmrbuelgkrua"]
+[gd_scene load_steps=17 format=3 uid="uid://pmrbuelgkrua"]
 
 [ext_resource type="Script" uid="uid://dskg7hx4b5lr" path="res://main/Ui_And_Mainscript.gd" id="1_53q0u"]
 [ext_resource type="Script" uid="uid://bah7bqvk6ivwr" path="res://main/Background.gd" id="2_3wy1v"]
 [ext_resource type="Script" uid="uid://dsdsw1uvnp716" path="res://main/Trail.gd" id="2_67ri8"]
+[ext_resource type="Script" uid="uid://b0wxkn8oq7y7p" path="res://main/Music.gd" id="2_grrlh"]
 [ext_resource type="Shader" uid="uid://bo8l0sgsycmsd" path="res://main/BackgroundShader.gdshader" id="2_kfbq2"]
 [ext_resource type="Script" uid="uid://c1vagnp7y22hl" path="res://main/BallMechanics.gd" id="2_pjrb6"]
 [ext_resource type="Script" uid="uid://dxurlyfv61set" path="res://main/Ground.gd" id="3_xwkvk"]
@@ -39,6 +40,13 @@ size = Vector2(3458, 5886)
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_53q0u")
+
+[node name="Musicmanager" type="Node" parent="."]
+script = ExtResource("2_grrlh")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Musicmanager"]
+volume_db = -7.598
+max_polyphony = 5
 
 [node name="UI" type="CanvasLayer" parent="."]
 
@@ -205,7 +213,7 @@ script = ExtResource("4_c651c")
 position = Vector2(1729, 2943)
 shape = SubResource("RectangleShape2D_xwkvk")
 
-[node name="Node" type="Node" parent="."]
+[node name="Inventory" type="Node" parent="."]
 script = ExtResource("7_4dugh")
 
 [connection signal="value_changed" from="UI/Camera2D/CanvasLayer/VBoxContainer/Angle" to="." method="_on_angle_changed"]
