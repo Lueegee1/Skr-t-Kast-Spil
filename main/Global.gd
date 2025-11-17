@@ -10,3 +10,4 @@ var Ball
 var Inventory
 var Ground
 var Background
+var settings

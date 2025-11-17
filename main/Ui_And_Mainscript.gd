@@ -102,6 +102,7 @@ func _on_air_resistance_upgrade_pressed():
 
 func _on_settings_button_pressed():
 	var menu = settings_menu.instantiate()
-	add_child(menu)
+	var main = get_node("/root/Gamecontroller")
+	main.add_child(menu)
 	Global.in_menu = true
 	$UI/Camera2D/CanvasLayer/VBoxContainer.visible = false
