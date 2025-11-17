@@ -9,4 +9,8 @@ func _on_sound_value_changed(value: float):
 
 
 func _on_screen_mode_pressed() -> void:
-	pass # Replace with function body.
+	var mode = DisplayServer.window_get_mode()
+	if mode == DisplayServer.WINDOW_MODE_FULLSCREEN:
+		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
+	else:
+		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)

@@ -62,33 +62,40 @@ func buy_and_upgrade(cost: float, property_name: String, upgrade_value: float, m
 			cost *= multiplier
 
 func _on_angle_changed(value: float):
-	Global.Ball.launch_angle = value
+	if not Global.in_menu:
+		Global.Ball.launch_angle = value
 
 
 func _on_angle_upgrade_pressed():
-	if Global.money > angle_price:
-		if angle.min_value > 0 and angle.max_value < 90:
-			angle.min_value = angle.min_value - 5
-			angle.max_value = angle.max_value + 5
-			angle_price *= 2
+	if not Global.in_menu:
+		if Global.money > angle_price:
+			if angle.min_value > 0 and angle.max_value < 90:
+				angle.min_value = angle.min_value - 5
+				angle.max_value = angle.max_value + 5
+				angle_price *= 2
 		
 
 
 func _on_gravity_upgrade_pressed():
-	buy_and_upgrade(gravity_price,"gravity", -0.05, 2)
+	if not Global.in_menu:
+		buy_and_upgrade(gravity_price,"gravity", -0.05, 2)
 
 func _on_friction_upgrade_pressed():
-	buy_and_upgrade(friction_price, "ground_friction", -0.05, 2)
+	if not Global.in_menu:
+		buy_and_upgrade(friction_price, "ground_friction", -0.05, 2)
 
 func _on_elasticity_upgrade_pressed():
-	buy_and_upgrade(elasticity_price, "ground_elasticity", 5, 2)
+	if not Global.in_menu:
+		buy_and_upgrade(elasticity_price, "ground_elasticity", 5, 2)
 
 func _on_speed_upgrade_pressed():
-	buy_and_upgrade(speed_price, "launch_speed", 100, 2)
+	if not Global.in_menu:
+		buy_and_upgrade(speed_price, "launch_speed", 100, 2)
 
 
 func _on_air_resistance_upgrade_pressed():
-	buy_and_upgrade(air_resistance_price, "air_resistance", -0.001, 2)
+	if not Global.in_menu:
+		buy_and_upgrade(air_resistance_price, "air_resistance", -0.001, 2)
 
 
 #func_on_shape_changed():

@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://bin3mowce36fg"]
 
-[ext_resource type="Script" path="res://main/SettingsMenu.gd" id="1_x2hje"]
+[ext_resource type="Script" uid="uid://cexs2dyu52qie" path="res://main/SettingsMenu.gd" id="1_x2hje"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x2hje"]
 
@@ -42,6 +42,11 @@ layout_mode = 2
 min_value = -60.0
 max_value = 0.0
 
+[node name="ScreenMode" type="Button" parent="CanvasLayer/Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "Change Mode"
+
 [node name="Button" type="Button" parent="CanvasLayer/Panel"]
 layout_mode = 0
 offset_left = 32.99074
@@ -53,4 +58,5 @@ theme_override_font_sizes/font_size = 10
 text = "Close Settings"
 
 [connection signal="value_changed" from="CanvasLayer/Panel/VBoxContainer/Sound" to="." method="_on_sound_value_changed"]
+[connection signal="pressed" from="CanvasLayer/Panel/VBoxContainer/ScreenMode" to="." method="_on_screen_mode_pressed"]
 [connection signal="pressed" from="CanvasLayer/Panel/Button" to="." method="_on_pressed"]
