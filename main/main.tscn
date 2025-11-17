@@ -1,12 +1,20 @@
-[gd_scene load_steps=13 format=3 uid="uid://pmrbuelgkrua"]
+[gd_scene load_steps=16 format=3 uid="uid://pmrbuelgkrua"]
 
 [ext_resource type="Script" uid="uid://dskg7hx4b5lr" path="res://main/Ui_And_Mainscript.gd" id="1_53q0u"]
 [ext_resource type="Script" uid="uid://bah7bqvk6ivwr" path="res://main/Background.gd" id="2_3wy1v"]
+[ext_resource type="Script" uid="uid://dsdsw1uvnp716" path="res://main/Trail.gd" id="2_67ri8"]
 [ext_resource type="Shader" uid="uid://bo8l0sgsycmsd" path="res://main/BackgroundShader.gdshader" id="2_kfbq2"]
 [ext_resource type="Script" uid="uid://c1vagnp7y22hl" path="res://main/BallMechanics.gd" id="2_pjrb6"]
 [ext_resource type="Script" uid="uid://dxurlyfv61set" path="res://main/Ground.gd" id="3_xwkvk"]
 [ext_resource type="Script" uid="uid://ede05gusyuy4" path="res://main/GroundCollision.gd" id="4_c651c"]
 [ext_resource type="Script" uid="uid://b42hswy45scj5" path="res://main/Inventory.gd" id="7_4dugh"]
+
+[sub_resource type="Curve" id="Curve_67ri8"]
+_data = [Vector2(1e-05, 0), 0.0, 0.0, 0, 0, Vector2(1, 0.59550565), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_grrlh"]
+offsets = PackedFloat32Array(0, 0.3219178)
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_xwkvk"]
 friction = 0.5
@@ -138,6 +146,16 @@ text = "Change Shape"
 layout_mode = 2
 theme_override_font_sizes/font_size = 12
 text = "Settings"
+
+[node name="Line2D" type="Line2D" parent="."]
+position = Vector2(581, -329)
+width_curve = SubResource("Curve_67ri8")
+gradient = SubResource("Gradient_grrlh")
+joint_mode = 1
+begin_cap_mode = 2
+antialiased = true
+script = ExtResource("2_67ri8")
+MAX_LENGTH = 20
 
 [node name="LaunchSite" type="Node2D" parent="."]
 
