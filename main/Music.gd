@@ -3,9 +3,8 @@ extends Node
 #var music_player: AudioStreamPlayer
 var theme = "res://Assets/Sound/Main theme loopable.mp3"
 @onready var music_player = $AudioStreamPlayer
-#func _ready():
-#	music_player = AudioStreamPlayer.new()
-	
+func _ready():
+	Global.Music = self	
 
 func play_main_theme(stream: AudioStream):
 	music_player.stream = stream
