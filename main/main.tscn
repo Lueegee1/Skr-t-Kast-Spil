@@ -10,7 +10,7 @@
 [ext_resource type="Script" uid="uid://dxurlyfv61set" path="res://main/Ground.gd" id="3_xwkvk"]
 [ext_resource type="AudioStream" uid="uid://dvx884nw5wn2b" path="res://Assets/Sound/Wind.wav" id="4_bsumw"]
 [ext_resource type="Script" uid="uid://ede05gusyuy4" path="res://main/GroundCollision.gd" id="4_c651c"]
-[ext_resource type="Shader" uid="uid://d0kineuej1sch" path="res://main/main.gdshader" id="5_0i4oc"]
+[ext_resource type="Shader" path="res://main/main.gdshader" id="5_0i4oc"]
 [ext_resource type="Script" uid="uid://b42hswy45scj5" path="res://main/Inventory.gd" id="7_4dugh"]
 
 [sub_resource type="Curve" id="Curve_67ri8"]
@@ -176,10 +176,9 @@ MAX_LENGTH = 20
 [node name="RigidBody2D" type="RigidBody2D" parent="LaunchSite"]
 scale = Vector2(1, 1.0167047)
 physics_material_override = SubResource("PhysicsMaterial_xwkvk")
-inertia = 1000.0
 linear_damp_mode = 1
 linear_damp = 0.08
-angular_damp = 100.0
+angular_damp = 0.08
 script = ExtResource("2_pjrb6")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="LaunchSite/RigidBody2D"]

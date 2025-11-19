@@ -3,6 +3,7 @@ extends RigidBody2D
 # Look into angular Damp, what it is and if its relevant
 # Look into physicsMaterial Absorbent clause, what it does and if it relevant
 # fix bounce so that x_velocity is kept (currently isnt)
+# fix starting rotation and position
 
 #------------------------------------------ Setup ------------------------------------------
 
