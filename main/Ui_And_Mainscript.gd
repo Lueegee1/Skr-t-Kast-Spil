@@ -27,10 +27,15 @@ var shape_price = 5
 var gravity_price = 5
 var change_shape_price = 5
 var shape_number = 0
+var num := 1
+@onready var object = $LaunchSite/RigidBody2D/Sprite2D 
 
 func _ready() -> void:
 	#music
 	music_player.play_main_theme(load("res://Assets/Sound/Main theme loopable.wav"))
+	object.texture = load("res://Assets/Sprites/shapes with glare/%d.png" % num)
+	object.scale = Vector2(0.1,0.1)
+	
 
 func _rounding(num):
 	var exponent = int(log(num+1)/log(10))
@@ -98,13 +103,13 @@ func _on_air_resistance_upgrade_pressed():
 		buy_and_upgrade(air_resistance_price, "air_resistance", -0.001, 2)
 
 
-#func_on_shape_changed():
-#if Global.money > change_shape_price:
-#	if Global.Ball.collision.shape != $"10kant":
-#		Global.Ball.collision.shape = shapes[shape_number]
-#		shape_number += 1
-#		Global.money -= change_shape_price
-#		print(shapes[shape_number])
+func _on_shape_changed():
+	if num <= 6:
+		object.texture = load("res://Assets/Sprites/shapes with glare/%d.png" % num)
+		object.scale = Vector2(0.1, 0.1)  
+		object.modulate = Color.WHITE
+		num += 1
+
 
 
 func _on_settings_button_pressed():

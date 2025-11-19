@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://nnpsxw2gbec1"
-path="res://.godot/imported/octagon.png.png-6bfe3451ed4e569fa9444efc8d63cffa.ctex"
+uid="uid://0aodgd1a2jn5"
+path="res://.godot/imported/4.png-22216ff9b934d6c107b77ed4e8244cb4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/shapes without glare/octagon.png.png"
-dest_files=["res://.godot/imported/octagon.png.png-6bfe3451ed4e569fa9444efc8d63cffa.ctex"]
+source_file="res://Assets/Sprites/shapes without glare/4.png"
+dest_files=["res://.godot/imported/4.png-22216ff9b934d6c107b77ed4e8244cb4.ctex"]
 
 [params]
 
