@@ -158,6 +158,11 @@ func collision_follow_sprite(sprite: Sprite2D, collider: CollisionPolygon2D):
 			center += point
 		center /= hull.size()
 		for i in range(hull.size()):
-			hull[i] = (hull[i] - center) * object.scale
+			var local_point = hull[i] - center
+			local_point.y = -local_point.y  
+			hull[i] = local_point * sprite.scale
 		collider.polygon = hull
-		collider.position = center * object.scale
+		var tex_size = Vector2(width, height)
+		var sprite_offset = (tex_size / 2 - center)
+		sprite_offset.y = -sprite_offset.y
+		collider.position = sprite_offset * sprite.scale
