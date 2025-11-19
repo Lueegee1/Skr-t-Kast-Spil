@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://pmrbuelgkrua"]
+[gd_scene load_steps=21 format=3 uid="uid://pmrbuelgkrua"]
 
 [ext_resource type="Script" uid="uid://dskg7hx4b5lr" path="res://main/Ui_And_Mainscript.gd" id="1_53q0u"]
 [ext_resource type="Script" uid="uid://bah7bqvk6ivwr" path="res://main/Background.gd" id="2_3wy1v"]
@@ -10,7 +10,8 @@
 [ext_resource type="Script" uid="uid://dxurlyfv61set" path="res://main/Ground.gd" id="3_xwkvk"]
 [ext_resource type="AudioStream" uid="uid://dvx884nw5wn2b" path="res://Assets/Sound/Wind.wav" id="4_bsumw"]
 [ext_resource type="Script" uid="uid://ede05gusyuy4" path="res://main/GroundCollision.gd" id="4_c651c"]
-[ext_resource type="Shader" path="res://main/main.gdshader" id="5_0i4oc"]
+[ext_resource type="Shader" uid="uid://d0kineuej1sch" path="res://main/main.gdshader" id="5_0i4oc"]
+[ext_resource type="Texture2D" uid="uid://dtu31pgotbyyt" path="res://Assets/Sprites/cool.png" id="5_na0o7"]
 [ext_resource type="Script" uid="uid://b42hswy45scj5" path="res://main/Inventory.gd" id="7_4dugh"]
 
 [sub_resource type="Curve" id="Curve_67ri8"]
@@ -160,6 +161,9 @@ text = "Change Shape"
 layout_mode = 2
 theme_override_font_sizes/font_size = 12
 text = "Settings"
+
+[node name="Foreground" type="Sprite2D" parent="UI/Camera2D/CanvasLayer"]
+texture = ExtResource("5_na0o7")
 
 [node name="Trail" type="Line2D" parent="."]
 position = Vector2(581, -329)

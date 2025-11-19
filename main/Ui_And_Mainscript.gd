@@ -10,7 +10,7 @@ extends Node2D
 @onready var angle = $UI/Camera2D/CanvasLayer/VBoxContainer/Angle
 @onready var shapes = ["4kant", "5kant", "6kant", "7kant", "8kant","9kant","10kant"]
 @onready var settings_menu = preload("res://main/settings.tscn")
-@onready var music_player = $Musicmanager
+@onready var foreground = $UI/Camera2D/CanvasLayer/Foreground
 var possible_angles = [45,45]
 
 
@@ -18,6 +18,7 @@ var offsetXP = Vector2(0,0)
 var offsetMoney = Vector2(200,0)
 var offsetPrestige = Vector2(400,0)
 var offsetUpgrades = Vector2(800,0)
+var offsetForeground = Vector2(576,324)
 var angle_price = 5
 var friction_price = 5 
 var elasticity_price = 5
@@ -58,6 +59,7 @@ func _process(_delta: float):# update position and money, xp and prestige
 	MoneyLabel.position = offsetMoney
 	PrestigeLabel.position = offsetPrestige
 	Upgrades.position = offsetUpgrades
+	foreground.position = offsetForeground
 	
 	
 
