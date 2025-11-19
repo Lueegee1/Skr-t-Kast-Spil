@@ -112,4 +112,4 @@ func _on_settings_button_pressed():
 	var main = get_node("/root/Gamecontroller")
 	main.add_child(menu)
 	Global.in_menu = true
-	$UI/Camera2D/CanvasLayer/VBoxContainer.visible = false
+	#$UI/Camera2D/CanvasLayer/VBoxContainer.visible = false
