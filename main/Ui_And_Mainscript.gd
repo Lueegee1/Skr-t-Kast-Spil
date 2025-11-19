@@ -33,12 +33,18 @@ var num := 1
 
 func _ready() -> void:
 	#music
+<<<<<<< Updated upstream
 	music_player.play_main_theme(load("res://Assets/Sound/Main theme loopable.wav"))
 	object.texture = load("res://Assets/Sprites/shapes without glare/%d.png" % num)
 	object.scale = Vector2(0.1,0.1)
 	collision_follow_sprite(object, collisionshape)
 	
 
+=======
+	#music_player.play_main_theme(load("res://Assets/Sound/Main theme loopable.wav"))
+	#music_player.play_wind()
+	pass
+>>>>>>> Stashed changes
 func _rounding(num):
 	var exponent = int(log(num+1)/log(10))
 	var suffixes = ["","K","M","B","T","Qu","Qi","Sx","Sp","O","N","Dc"]
