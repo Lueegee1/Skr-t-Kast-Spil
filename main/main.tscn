@@ -1,8 +1,4 @@
-<<<<<<< Updated upstream
 [gd_scene load_steps=18 format=3 uid="uid://pmrbuelgkrua"]
-=======
-[gd_scene load_steps=19 format=3 uid="uid://pmrbuelgkrua"]
->>>>>>> Stashed changes
 
 [ext_resource type="Script" uid="uid://dskg7hx4b5lr" path="res://main/Ui_And_Mainscript.gd" id="1_53q0u"]
 [ext_resource type="Script" uid="uid://bah7bqvk6ivwr" path="res://main/Background.gd" id="2_3wy1v"]
@@ -10,9 +6,7 @@
 [ext_resource type="Script" uid="uid://b0wxkn8oq7y7p" path="res://main/Music.gd" id="2_grrlh"]
 [ext_resource type="Shader" uid="uid://bo8l0sgsycmsd" path="res://main/BackgroundShader.gdshader" id="2_kfbq2"]
 [ext_resource type="Script" uid="uid://c1vagnp7y22hl" path="res://main/BallMechanics.gd" id="2_pjrb6"]
-[ext_resource type="AudioStream" uid="uid://pnnfy0et3uuq" path="res://Assets/Sound/Main theme loopable.wav" id="3_0i4oc"]
 [ext_resource type="Script" uid="uid://dxurlyfv61set" path="res://main/Ground.gd" id="3_xwkvk"]
-[ext_resource type="AudioStream" uid="uid://dvx884nw5wn2b" path="res://Assets/Sound/Wind.wav" id="4_bsumw"]
 [ext_resource type="Script" uid="uid://ede05gusyuy4" path="res://main/GroundCollision.gd" id="4_c651c"]
 [ext_resource type="Shader" uid="uid://d0kineuej1sch" path="res://main/main.gdshader" id="5_0i4oc"]
 [ext_resource type="Script" uid="uid://b42hswy45scj5" path="res://main/Inventory.gd" id="7_4dugh"]
@@ -51,11 +45,9 @@ script = ExtResource("1_53q0u")
 [node name="Musicmanager" type="Node" parent="."]
 script = ExtResource("2_grrlh")
 
-[node name="ThemePlayer" type="AudioStreamPlayer" parent="Musicmanager"]
-stream = ExtResource("3_0i4oc")
-
-[node name="WindPlayer" type="AudioStreamPlayer" parent="Musicmanager"]
-stream = ExtResource("4_bsumw")
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Musicmanager"]
+volume_db = -7.598
+max_polyphony = 5
 
 [node name="UI" type="CanvasLayer" parent="."]
 
@@ -184,7 +176,6 @@ linear_damp_mode = 1
 linear_damp = 0.08
 angular_damp = 100.0
 script = ExtResource("2_pjrb6")
-launch_speed = 50000.0
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="LaunchSite/RigidBody2D"]
 
@@ -230,4 +221,3 @@ script = ExtResource("7_4dugh")
 [connection signal="pressed" from="UI/Camera2D/CanvasLayer/VBoxContainer/AirResistanceUpgrade" to="." method="_on_air_resistance_upgrade_pressed"]
 [connection signal="pressed" from="UI/Camera2D/CanvasLayer/VBoxContainer/Shape" to="." method="_on_shape_changed"]
 [connection signal="pressed" from="UI/Camera2D/CanvasLayer/VBoxContainer/Settings" to="." method="_on_settings_button_pressed"]
-[connection signal="body_shape_entered" from="LaunchSite/RigidBody2D" to="Musicmanager" method="_on_rigid_body_2d_body_shape_entered"]
