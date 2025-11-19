@@ -10,7 +10,7 @@
 [ext_resource type="Script" uid="uid://dxurlyfv61set" path="res://main/Ground.gd" id="3_xwkvk"]
 [ext_resource type="AudioStream" uid="uid://dvx884nw5wn2b" path="res://Assets/Sound/Wind.wav" id="4_bsumw"]
 [ext_resource type="Script" uid="uid://ede05gusyuy4" path="res://main/GroundCollision.gd" id="4_c651c"]
-[ext_resource type="Shader" uid="uid://d0kineuej1sch" path="res://main/main.gdshader" id="5_0i4oc"]
+[ext_resource type="Shader" path="res://main/main.gdshader" id="5_0i4oc"]
 [ext_resource type="Texture2D" uid="uid://dtu31pgotbyyt" path="res://Assets/Sprites/cool.png" id="5_na0o7"]
 [ext_resource type="Script" uid="uid://b42hswy45scj5" path="res://main/Inventory.gd" id="7_4dugh"]
 
@@ -178,6 +178,7 @@ MAX_LENGTH = 20
 [node name="LaunchSite" type="Node2D" parent="."]
 
 [node name="RigidBody2D" type="RigidBody2D" parent="LaunchSite"]
+position = Vector2(25, 0)
 scale = Vector2(1, 1.0167047)
 physics_material_override = SubResource("PhysicsMaterial_xwkvk")
 linear_damp_mode = 1
@@ -191,6 +192,7 @@ script = ExtResource("2_pjrb6")
 material = SubResource("ShaderMaterial_bsumw")
 
 [node name="Marker2D" type="Marker2D" parent="LaunchSite"]
+position = Vector2(25, 0)
 
 [node name="Ground" type="Node2D" parent="."]
 top_level = true
