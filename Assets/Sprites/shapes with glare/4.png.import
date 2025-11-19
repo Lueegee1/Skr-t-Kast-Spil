@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://byb4h1vve6qcb"
-path="res://.godot/imported/heptagon.png.png-944923a57a914e3cbc419a085e6d2977.ctex"
+uid="uid://d0dh0pgia8nkv"
+path="res://.godot/imported/4.png-a4d7d6fc8547ccfc7cd35ae7272e4840.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/shapes with glare/heptagon.png.png"
-dest_files=["res://.godot/imported/heptagon.png.png-944923a57a914e3cbc419a085e6d2977.ctex"]
+source_file="res://Assets/Sprites/shapes with glare/4.png"
+dest_files=["res://.godot/imported/4.png-a4d7d6fc8547ccfc7cd35ae7272e4840.ctex"]
 
 [params]
 

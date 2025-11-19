@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d0dh0pgia8nkv"
-path="res://.godot/imported/hexagon.png.png-b6af8116b8f10a435a40667b30035779.ctex"
+uid="uid://b16p56m6rvyjs"
+path="res://.godot/imported/1.png-d597ef606491e6cc4aeee9e9bebe0948.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/shapes with glare/hexagon.png.png"
-dest_files=["res://.godot/imported/hexagon.png.png-b6af8116b8f10a435a40667b30035779.ctex"]
+source_file="res://Assets/Sprites/shapes with glare/1.png"
+dest_files=["res://.godot/imported/1.png-d597ef606491e6cc4aeee9e9bebe0948.ctex"]
 
 [params]
 
