@@ -25,7 +25,7 @@ var stood_still = false
 # defining object paths
 @onready var StartPos = $"../Marker2D".global_position # start position of the RigidBody2D
 @onready var Sprite = $Sprite2D                        # sprite of the RigidBody2D
-@onready var collision = $CollisionPolygon2D           # collision of the RigidBody2D
+@onready var collision = $CollisionPolygon2D         # collision of the RigidBody2D
 
 #------------------------------------------ Code ------------------------------------------
 

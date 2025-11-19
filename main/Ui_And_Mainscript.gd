@@ -29,11 +29,13 @@ var change_shape_price = 5
 var shape_number = 0
 var num := 1
 @onready var object = $LaunchSite/RigidBody2D/Sprite2D 
+@onready var collisionshape = $LaunchSite/RigidBody2D/CollisionPolygon2D
 
 func _ready() -> void:
 	#music
 	music_player.play_main_theme(load("res://Assets/Sound/Main theme loopable.wav"))
-	object.texture = load("res://Assets/Sprites/shapes with glare/%d.png" % num)
+	object.texture = load("res://Assets/Sprites/shapes without glare/%d.png" % num)
+	collision_follow_sprite(object, collisionshape)
 	object.scale = Vector2(0.1,0.1)
 	
 
@@ -104,11 +106,13 @@ func _on_air_resistance_upgrade_pressed():
 
 
 func _on_shape_changed():
-	if num <= 6:
-		object.texture = load("res://Assets/Sprites/shapes with glare/%d.png" % num)
+	if num < 6:
+		num += 1
+		object.texture = load("res://Assets/Sprites/shapes without glare/%d.png" % num)
 		object.scale = Vector2(0.1, 0.1)  
 		object.modulate = Color.WHITE
-		num += 1
+		collision_follow_sprite(object, collisionshape)
+
 
 
 
@@ -118,3 +122,34 @@ func _on_settings_button_pressed():
 	main.add_child(menu)
 	Global.in_menu = true
 	#$UI/Camera2D/CanvasLayer/VBoxContainer.visible = false
+	
+func collision_follow_sprite(sprite: Sprite2D, collider: CollisionPolygon2D):
+	var tex := sprite.texture
+	if tex == null:
+		return
+
+	# Convert texture → image
+	var img: Image = tex.get_image()
+	var outline := []
+
+	var width := img.get_width()
+	var height := img.get_height()
+
+	for y in range(height):
+		for x in range(width):
+			var a := img.get_pixel(x, y).a
+			if a > 0.1:
+				var is_edge := false
+				for ny in range(-1, 2):
+					for nx in range(-1, 2):
+						if nx == 0 and ny == 0:
+							continue
+						var px := x + nx
+						var py := y + ny
+						if px >= 0 and py >= 0 and px < width and py < height:
+							if img.get_pixel(px, py).a <= 0.1:
+								is_edge = true
+				if is_edge:
+					outline.append(Vector2(x, y))
+	if outline.size() > 8:
+		collider.polygon = Geometry2D.convex_hull(outline)
