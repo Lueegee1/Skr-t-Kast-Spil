@@ -33,7 +33,7 @@ var num := 1
 
 func _ready() -> void:
 	#music
-	music_player.play_main_theme(load("res://Assets/Sound/Main theme loopable.wav"))
+#	music_player.play_main_theme(load("res://Assets/Sound/Main theme loopable.wav"))
 	object.texture = load("res://Assets/Sprites/shapes without glare/%d.png" % num)
 	object.scale = Vector2(0.1,0.1)
 	collision_follow_sprite(object, collisionshape)
