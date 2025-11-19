@@ -152,4 +152,12 @@ func collision_follow_sprite(sprite: Sprite2D, collider: CollisionPolygon2D):
 				if is_edge:
 					outline.append(Vector2(x, y))
 	if outline.size() > 8:
-		collider.polygon = Geometry2D.convex_hull(outline)
+		var hull = Geometry2D.convex_hull(outline)
+		var center = Vector2.ZERO
+		for point in hull:
+			center += point
+		center /= hull.size()
+		for i in range(hull.size()):
+			hull[i] = (hull[i] - center) * object.scale
+		collider.polygon = hull
+		collider.position = center * object.scale
