@@ -23,4 +23,4 @@ func _process(_delta):
 	width = ((Global.Ball.linear_velocity).length())**width_scaling -4
 	width = clamp(width,0,40)
 func _get_position():
-	return Global.Ball.position - Vector2(569.0,-318.0) #Camera coords + slight correction
+	return Global.Ball.position - Vector2(580.0,-325.0) #Camera coords + slight correction

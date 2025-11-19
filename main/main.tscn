@@ -161,7 +161,7 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 12
 text = "Settings"
 
-[node name="Line2D" type="Line2D" parent="."]
+[node name="Trail" type="Line2D" parent="."]
 position = Vector2(581, -329)
 width_curve = SubResource("Curve_67ri8")
 gradient = SubResource("Gradient_grrlh")
