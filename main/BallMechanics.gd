@@ -30,6 +30,8 @@ var stood_still = false
 #------------------------------------------ Code ------------------------------------------
 
 func _ready():
+	contact_monitor = true
+	max_contacts_reported = 4
 	Global.Ball = self
 	await get_tree().process_frame  # wait one frame so the shape exists
 	reload_variables()
@@ -60,6 +62,13 @@ func _physics_process(delta): # called every frame
 			stood_still = true
 			Global.Inventory._get_money(position.x)
 			initiate_Launch()
+func _integrate_forces(state):
+	for i in state.get_contact_count():
+		var collider = state.get_contact_collider_object(i)
+		if collider and collider.is_in_group("ground"):
+			_on_touch_ground()
+func _on_touch_ground():
+	print("Touched the ground!")
 
 func reload_variables():
 	# Air resistance & gravity
