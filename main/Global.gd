@@ -22,8 +22,6 @@ var prev_prestige = 0
 
 func _ready():
 	load_game()
-	print("Save file exists:", FileAccess.file_exists(SAVE_FILE))
-	print("Save path:", SAVE_FILE)
 
 func _process(_delta):
 	if money != prev_money or exp != prev_exp or prestige != prev_prestige:
