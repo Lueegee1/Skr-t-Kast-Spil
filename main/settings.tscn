@@ -47,6 +47,11 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 12
 text = "Change Mode"
 
+[node name="Button" type="Button" parent="CanvasLayer/Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "Reset Game"
+
 [node name="Button" type="Button" parent="CanvasLayer/Panel"]
 layout_mode = 0
 offset_left = 32.99074
@@ -59,4 +64,5 @@ text = "Close Settings"
 
 [connection signal="value_changed" from="CanvasLayer/Panel/VBoxContainer/Sound" to="." method="_on_sound_value_changed"]
 [connection signal="pressed" from="CanvasLayer/Panel/VBoxContainer/ScreenMode" to="." method="_on_screen_mode_pressed"]
+[connection signal="pressed" from="CanvasLayer/Panel/VBoxContainer/Button" to="." method="_on_reset_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/Panel/Button" to="." method="_on_pressed"]
