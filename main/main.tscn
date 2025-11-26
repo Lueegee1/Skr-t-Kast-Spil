@@ -172,11 +172,13 @@ theme_override_font_sizes/font_size = 8
 flat = true
 
 [node name="Settings" type="Button" parent="UI/Camera2D/CanvasLayer/VBoxContainer"]
-offset_top = 222.0
-offset_right = 281.0
-offset_bottom = 247.0
+offset_left = 1065.0
+offset_top = -633.00006
+offset_right = 1346.0
+offset_bottom = -608.00006
+scale = Vector2(0.29474774, 3.0067537)
 theme_override_font_sizes/font_size = 12
-text = "Settings"
+flat = true
 
 [node name="Rrrelooc" type="Sprite2D" parent="UI/Camera2D/CanvasLayer/VBoxContainer"]
 z_index = -5
@@ -309,10 +311,10 @@ show_behind_parent = true
 z_index = -10
 z_as_relative = false
 material = SubResource("ShaderMaterial_kfbq2")
-offset_left = -577.0
-offset_top = -28279.0
-offset_right = 59363.0
-offset_bottom = 642.0
+offset_left = -564.0
+offset_top = -28307.0
+offset_right = 59376.0
+offset_bottom = 614.0
 scale = Vector2(1, 0.99992716)
 script = ExtResource("2_3wy1v")
 

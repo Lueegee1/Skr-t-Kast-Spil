@@ -17,48 +17,57 @@ script = ExtResource("1_x2hje")
 
 [node name="Panel" type="Panel" parent="CanvasLayer"]
 self_modulate = Color(0, 0, 0, 1)
+z_index = 4096
 offset_right = 40.0
 offset_bottom = 40.0
 scale = Vector2(28.674713, 16.27667)
 theme_override_styles/panel = SubResource("StyleBoxFlat_x2hje")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Panel"]
-layout_mode = 0
-offset_right = 109.0
-offset_bottom = 40.0
+[node name="VBoxContainer" type="Node2D" parent="CanvasLayer/Panel"]
+position = Vector2(3.5222669, 5.0993233)
 scale = Vector2(0.27363577, 0.20435932)
 
-[node name="Title" type="Label" parent="CanvasLayer/Panel/VBoxContainer"]
-layout_mode = 2
+[node name="Title" type="RichTextLabel" parent="CanvasLayer/Panel/VBoxContainer"]
+offset_right = 109.0
+offset_bottom = 23.0
+bbcode_enabled = true
 text = "Settings"
 
 [node name="Sound_Title" type="Label" parent="CanvasLayer/Panel/VBoxContainer"]
-layout_mode = 2
+offset_top = 27.0
+offset_right = 109.0
+offset_bottom = 39.0
 theme_override_font_sizes/font_size = 8
 text = "Sound control"
 
 [node name="Sound" type="HSlider" parent="CanvasLayer/Panel/VBoxContainer"]
-layout_mode = 2
+offset_top = 43.0
+offset_right = 109.0
+offset_bottom = 59.0
 min_value = -60.0
 max_value = 0.0
 
 [node name="ScreenMode" type="Button" parent="CanvasLayer/Panel/VBoxContainer"]
-layout_mode = 2
+offset_top = 63.0
+offset_right = 109.0
+offset_bottom = 88.0
 theme_override_font_sizes/font_size = 12
 text = "Change Mode"
 
 [node name="Button" type="Button" parent="CanvasLayer/Panel/VBoxContainer"]
-layout_mode = 2
+offset_top = 92.0
+offset_right = 109.0
+offset_bottom = 117.0
 theme_override_colors/font_color = Color(1, 0, 0, 1)
 theme_override_font_sizes/font_size = 12
 text = "Reset Game"
 
 [node name="Button" type="Button" parent="CanvasLayer/Panel"]
 layout_mode = 0
-offset_left = 32.99074
-offset_top = 34.159317
-offset_right = 141.99074
-offset_bottom = 56.159317
+offset_left = 32.642
+offset_top = 33.85213
+offset_right = 141.642
+offset_bottom = 55.85213
 scale = Vector2(0.063160434, 0.23292185)
 theme_override_font_sizes/font_size = 10
 text = "Close Settings"
