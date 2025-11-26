@@ -163,6 +163,8 @@ theme_override_font_sizes/font_size = 12
 text = "Settings"
 
 [node name="Foreground" type="Sprite2D" parent="UI/Camera2D/CanvasLayer"]
+z_index = -10
+position = Vector2(591, -329)
 texture = ExtResource("5_na0o7")
 
 [node name="Trail" type="Line2D" parent="."]
@@ -205,10 +207,10 @@ show_behind_parent = true
 z_index = -10
 z_as_relative = false
 material = SubResource("ShaderMaterial_kfbq2")
-offset_left = -1366.0
-offset_top = -28058.0
-offset_right = 58574.0
-offset_bottom = 863.0
+offset_left = -577.0
+offset_top = -28286.0
+offset_right = 59363.0
+offset_bottom = 635.0
 scale = Vector2(1, 0.99992716)
 script = ExtResource("2_3wy1v")
 

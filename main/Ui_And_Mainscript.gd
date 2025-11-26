@@ -51,7 +51,8 @@ func _rounding(num):
 			pass
 
 func _process(_delta: float):# update position and money, xp and prestige
-	Camera.global_position = RigidBody.global_position #updates camera position
+	Camera.global_position.x = RigidBody.global_position.x + 288 #updates camera position
+	Camera.global_position.y = RigidBody.global_position.y - 162 #updates camera position
 	XpLabel.text = "Xp: " + _rounding(Global.exp)
 	MoneyLabel.text = "Money: " + _rounding(Global.money)
 	PrestigeLabel.text = "Prestige: " + _rounding(Global.prestige)
