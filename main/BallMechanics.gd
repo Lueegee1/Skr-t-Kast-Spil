@@ -34,9 +34,11 @@ func _ready():
 	contact_monitor = true
 	max_contacts_reported = 4
 	Global.Ball = self
+	Global.ball_loaded = true
 	await get_tree().process_frame  # wait one frame so the shape exists
 	reload_variables()
 	initiate_Launch()
+	
 
 func initiate_Launch(): # sets up variables, waits a bit then calls the launch function LaunchRigidBody()
 	global_position = StartPos
