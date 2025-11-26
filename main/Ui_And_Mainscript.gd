@@ -12,7 +12,7 @@ extends Node2D
 @onready var foreground = $UI/Camera2D/CanvasLayer/Foreground
 var possible_angles = [45,45]
 
-#this is fine
+# Upgrade Button Nodes
 @onready var upgbtn1 = $UI/Camera2D/CanvasLayer/VBoxContainer/Rrrelooc
 @onready var name1 = $UI/Camera2D/CanvasLayer/VBoxContainer/Coolerrrr 
 @onready var upgbtn2 = $UI/Camera2D/CanvasLayer/VBoxContainer/Rrrelooc2
@@ -50,36 +50,57 @@ var button_labels = []
 @onready var object = $LaunchSite/RigidBody2D/Sprite2D 
 @onready var collisionshape = $LaunchSite/RigidBody2D/CollisionPolygon2D
 
+# ---------------------------------------------------------
+# Load your font ONCE
+# ---------------------------------------------------------
+var ui_font := preload("res://Assets/Roboto-Medium.ttf")
+
+# ---------------------------------------------------------
+# Fixed attach_text()
+# ---------------------------------------------------------
+func attach_text(sprite: Node, txt: String, offset := Vector2(0,0), font_size := 24):
+	var lbl := Label.new()
+	lbl.text = txt
+	lbl.position = offset
+
+	# Apply the preloaded font directly (the correct way)
+	lbl.add_theme_font_override("font", ui_font)
+	lbl.add_theme_font_size_override("font_size", font_size)
+
+	sprite.add_child(lbl)
+	return lbl
+
+
 func _ready() -> void:
 	object.texture = load("res://Assets/Sprites/shapes without glare/%d.png" % num)
 	object.scale = Vector2(0.1,0.1)
 	collision_follow_sprite(object, collisionshape)
-	
-	# Attach text to name sprites
-	attach_text(name1, "Increase possible angles")
-	attach_text(name2, "Reduce gravity on object")
-	attach_text(name3, "Reduce objects friction")
-	attach_text(name4, "Increase elasticity of the ground")
-	attach_text(name5, "Increase initial launch speed")
-	attach_text(name6, "decrease air resistance")
-	attach_text(name7, "Change object shape")
 
-	# Attach upgrade cost labels
+	# Name texts with custom position + font size
+	attach_text(name1, "Increase possible angles", Vector2(-168, -17), 30)
+	attach_text(name2, "Reduce gravity on object", Vector2(-168, -17), 30)
+	attach_text(name3, "Reduce objects friction", Vector2(-160, -17), 30)
+	attach_text(name4, "Increase ground elasticity", Vector2(-170, -17), 30)
+	attach_text(name5, "Increase initial launch speed", Vector2(-187, -17), 30)
+	attach_text(name6, "Decrease air resistance", Vector2(-160, -17), 30)
+	attach_text(name7, "Change object shape", Vector2(-140, -17), 30)
+
+	# Buttons
 	button_labels = [
-		attach_text(upgbtn1, "Upgrade: " + str(angle_price)),
-		attach_text(upgbtn2, "Upgrade: " + str(gravity_price)),
-		attach_text(upgbtn3, "Upgrade: " + str(friction_price)),
-		attach_text(upgbtn4, "Upgrade: " + str(elasticity_price)),
-		attach_text(upgbtn5, "Upgrade: " + str(speed_price)),
-		attach_text(upgbtn6, "Upgrade: " + str(air_resistance_price)),
-		attach_text(upgbtn7, "Upgrade: " + str(change_shape_price))
+		attach_text(upgbtn1, str(angle_price), Vector2(-20,-20), 34),
+		attach_text(upgbtn2, str(gravity_price), Vector2(-20,-20), 34),
+		attach_text(upgbtn3, str(friction_price), Vector2(-20,-20), 34),
+		attach_text(upgbtn4, str(elasticity_price), Vector2(-20,-20), 34),
+		attach_text(upgbtn5, str(speed_price), Vector2(-20,-20), 34),
+		attach_text(upgbtn6, str(air_resistance_price), Vector2(-20,-20), 34),
+		attach_text(upgbtn7, str(change_shape_price), Vector2(-20,-20), 34),
 	]
 
 func _rounding(num):
 	var exponent = int(log(num+1)/log(10))
 	var suffixes = ["","K","M","B","T","Qu","Qi","Sx","Sp","O","N","Dc"]
 	for i in range(suffixes.size()):
-		if (3*i) <= exponent and exponent <(3+3*i):
+		if (3*i) <= exponent and exponent < (3+3*i):
 			exponent = 3*i
 			return str((round(float(num)/(10**exponent)*10))/10) + suffixes[i]
 	return str(num)
@@ -88,9 +109,9 @@ func _process(_delta: float):
 	Camera.global_position.x = RigidBody.global_position.x + 288
 	Camera.global_position.y = RigidBody.global_position.y - 162
 
-	XpLabel.text = "Xp: " + _rounding(Global.exp)
-	MoneyLabel.text = "Money: " + _rounding(Global.money)
-	PrestigeLabel.text = "Prestige: " + _rounding(Global.prestige)
+	XpLabel.text = _rounding(Global.exp)
+	MoneyLabel.text = _rounding(Global.money)
+	#PrestigeLabel.text = "Prestige: " + _rounding(Global.prestige)
 
 	XpLabel.position = offsetXP
 	MoneyLabel.position = offsetMoney
@@ -124,12 +145,6 @@ func shopPosUpdate():
 		button_node.position = Vector2(list_start_pos.x + button_x_offset, y_offset + name_to_button_gap)
 		y_offset += entry_gap
 
-func attach_text(sprite: Sprite2D, txt: String, offset := Vector2(0, 0)):
-	var lbl := Label.new()
-	lbl.text = txt
-	lbl.position = offset
-	sprite.add_child(lbl)
-	return lbl
 
 func buy_and_upgrade(cost_ref: String, property_name: String, upgrade_value: float, multiplier: float, min_value := -INF, max_value := INF):
 	var cost = self.get(cost_ref)
@@ -153,13 +168,13 @@ func _on_angle_upgrade_pressed():
 				angle_price *= 2
 
 func update_upgrade_labels():
-	button_labels[0].text = "Upgrade: " + _rounding(angle_price)
-	button_labels[1].text = "Upgrade: " + _rounding(gravity_price)
-	button_labels[2].text = "Upgrade: " + _rounding(friction_price)
-	button_labels[3].text = "Upgrade: " + _rounding(elasticity_price)
-	button_labels[4].text = "Upgrade: " + _rounding(speed_price)
-	button_labels[5].text = "Upgrade: " + _rounding(air_resistance_price)
-	button_labels[6].text = "Upgrade: " + _rounding(change_shape_price)
+	button_labels[0].text = _rounding(angle_price)
+	button_labels[1].text = _rounding(gravity_price)
+	button_labels[2].text = _rounding(friction_price)
+	button_labels[3].text = _rounding(elasticity_price)
+	button_labels[4].text = _rounding(speed_price)
+	button_labels[5].text = _rounding(air_resistance_price)
+	button_labels[6].text = _rounding(change_shape_price)
 
 func _on_gravity_upgrade_pressed():
 	if not Global.in_menu:

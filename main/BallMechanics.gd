@@ -16,7 +16,7 @@ extends RigidBody2D
 @export var air_resistance = 0.5                     # uses the "damp" variable as air resistance
 @export var gravity = 1                                # uses the "gravity_scale" as gravity
 @export var ground_friction = 0.1                     # uses PhysicsMaterial's "friction" as friction
-@export var ground_elasticity = 0.5                    # uses PhysicsMaterial's "bounce" as the grounds elasticity
+@export var ground_elasticity = 0.0                    # uses PhysicsMaterial's "bounce" as the grounds elasticity
 
 # variables
 var still_time := 0.0                                  # var to hold the ellapsed time the RigidBody2D has been stationary  
