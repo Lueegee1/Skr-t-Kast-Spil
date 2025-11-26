@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://pmrbuelgkrua"]
+[gd_scene load_steps=23 format=3 uid="uid://pmrbuelgkrua"]
 
 [ext_resource type="Script" uid="uid://dskg7hx4b5lr" path="res://main/Ui_And_Mainscript.gd" id="1_53q0u"]
 [ext_resource type="Script" uid="uid://bah7bqvk6ivwr" path="res://main/Background.gd" id="2_3wy1v"]
@@ -11,7 +11,9 @@
 [ext_resource type="AudioStream" uid="uid://dvx884nw5wn2b" path="res://Assets/Sound/Wind.wav" id="4_bsumw"]
 [ext_resource type="Script" uid="uid://ede05gusyuy4" path="res://main/GroundCollision.gd" id="4_c651c"]
 [ext_resource type="Shader" uid="uid://d0kineuej1sch" path="res://main/main.gdshader" id="5_0i4oc"]
+[ext_resource type="Texture2D" uid="uid://drpu3la45ogjk" path="res://Assets/Sprites/rrrelooc.png" id="5_5xyti"]
 [ext_resource type="Texture2D" uid="uid://dtu31pgotbyyt" path="res://Assets/Sprites/cool.png" id="5_na0o7"]
+[ext_resource type="Texture2D" uid="uid://db0oq5hhxoy4y" path="res://Assets/Sprites/coolerrrr.png" id="6_n3o0a"]
 [ext_resource type="Script" uid="uid://b42hswy45scj5" path="res://main/Inventory.gd" id="7_4dugh"]
 
 [sub_resource type="Curve" id="Curve_67ri8"]
@@ -93,74 +95,100 @@ scale = Vector2(2.39408, 2.0930214)
 theme_override_font_sizes/font_size = 12
 text = "0"
 
-[node name="VBoxContainer" type="VBoxContainer" parent="UI/Camera2D/CanvasLayer"]
-offset_left = 525.00006
-offset_top = -650.0
-offset_right = 806.0001
-offset_bottom = -432.0
-scale = Vector2(1.0557145, 1.3568997)
-size_flags_vertical = 4
+[node name="VBoxContainer" type="Node" parent="UI/Camera2D/CanvasLayer"]
 
 [node name="Title" type="Label" parent="UI/Camera2D/CanvasLayer/VBoxContainer"]
-layout_mode = 2
+offset_right = 281.0
+offset_bottom = 14.0
 size_flags_stretch_ratio = 5.0
 theme_override_font_sizes/font_size = 10
 text = "Upgrades:"
 
 [node name="Angle_Label" type="Label" parent="UI/Camera2D/CanvasLayer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 1)
-layout_mode = 2
+offset_top = 18.0
+offset_right = 281.0
+offset_bottom = 30.0
 size_flags_vertical = 8
 theme_override_font_sizes/font_size = 8
 text = "Change Angle"
 
 [node name="Angle" type="HSlider" parent="UI/Camera2D/CanvasLayer/VBoxContainer"]
-layout_mode = 2
+offset_top = 34.0
+offset_right = 281.0
+offset_bottom = 50.0
 min_value = 40.0
 max_value = 50.0
 value = 40.0
 
 [node name="AngleUpgrade" type="Button" parent="UI/Camera2D/CanvasLayer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 1)
-layout_mode = 2
+offset_top = 54.0
+offset_right = 281.0
+offset_bottom = 74.0
 size_flags_vertical = 8
 theme_override_font_sizes/font_size = 8
 text = "Upgrade Angle"
+flat = true
 
 [node name="GravityUpgrade" type="Button" parent="UI/Camera2D/CanvasLayer/VBoxContainer"]
-layout_mode = 2
+offset_top = 78.0
+offset_right = 281.0
+offset_bottom = 98.0
 theme_override_font_sizes/font_size = 8
 text = "Upgrade Gravity"
 
 [node name="FrictionUpgrade" type="Button" parent="UI/Camera2D/CanvasLayer/VBoxContainer"]
-layout_mode = 2
+offset_top = 102.0
+offset_right = 281.0
+offset_bottom = 122.0
 theme_override_font_sizes/font_size = 8
 text = "Upgrade Friction"
 
 [node name="ElasticityUpgrade" type="Button" parent="UI/Camera2D/CanvasLayer/VBoxContainer"]
-layout_mode = 2
+offset_top = 126.0
+offset_right = 281.0
+offset_bottom = 146.0
 theme_override_font_sizes/font_size = 8
 text = "Upgrade Elasticity"
 
 [node name="SpeedUpgrade" type="Button" parent="UI/Camera2D/CanvasLayer/VBoxContainer"]
-layout_mode = 2
+offset_top = 150.0
+offset_right = 281.0
+offset_bottom = 170.0
 theme_override_font_sizes/font_size = 8
 text = "Upgrade Speed"
 
 [node name="AirResistanceUpgrade" type="Button" parent="UI/Camera2D/CanvasLayer/VBoxContainer"]
-layout_mode = 2
+offset_top = 174.0
+offset_right = 281.0
+offset_bottom = 194.0
 theme_override_font_sizes/font_size = 8
 text = "Upgrade Air Resistance"
 
 [node name="Shape" type="Button" parent="UI/Camera2D/CanvasLayer/VBoxContainer"]
-layout_mode = 2
+offset_top = 198.0
+offset_right = 281.0
+offset_bottom = 218.0
 theme_override_font_sizes/font_size = 8
 text = "Change Shape"
 
 [node name="Settings" type="Button" parent="UI/Camera2D/CanvasLayer/VBoxContainer"]
-layout_mode = 2
+offset_top = 222.0
+offset_right = 281.0
+offset_bottom = 247.0
 theme_override_font_sizes/font_size = 12
 text = "Settings"
+
+[node name="Rrrelooc" type="Sprite2D" parent="UI/Camera2D/CanvasLayer/VBoxContainer"]
+position = Vector2(1102.4475, -490.00003)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("5_5xyti")
+
+[node name="Coolerrrr" type="Sprite2D" parent="UI/Camera2D/CanvasLayer/VBoxContainer"]
+position = Vector2(1050.35, -516.2)
+scale = Vector2(0.45, 0.4)
+texture = ExtResource("6_n3o0a")
 
 [node name="Foreground" type="Sprite2D" parent="UI/Camera2D/CanvasLayer"]
 z_index = -10
@@ -208,9 +236,9 @@ z_index = -10
 z_as_relative = false
 material = SubResource("ShaderMaterial_kfbq2")
 offset_left = -577.0
-offset_top = -28286.0
+offset_top = -28279.0
 offset_right = 59363.0
-offset_bottom = 635.0
+offset_bottom = 642.0
 scale = Vector2(1, 0.99992716)
 script = ExtResource("2_3wy1v")
 
