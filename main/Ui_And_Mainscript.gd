@@ -77,6 +77,7 @@ func attach_text(parent: Node, txt: String, offset := Vector2(0,0), font_size :=
 
 
 func _ready() -> void:
+	Global.UI = self
 	object.texture = load("res://Assets/Sprites/shapes without glare/%d.png" % num)
 	object.scale = Vector2(0.1,0.1)
 	collision_follow_sprite(object, collisionshape)
