@@ -95,13 +95,6 @@ text = "0"
 
 [node name="VBoxContainer" type="Node2D" parent="UI/Camera2D/CanvasLayer"]
 
-[node name="Title" type="Label" parent="UI/Camera2D/CanvasLayer/VBoxContainer"]
-offset_right = 281.0
-offset_bottom = 14.0
-size_flags_stretch_ratio = 5.0
-theme_override_font_sizes/font_size = 10
-text = "Upgrades:"
-
 [node name="Angle_Label" type="Label" parent="UI/Camera2D/CanvasLayer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 1)
 offset_top = 18.0
@@ -117,9 +110,10 @@ offset_left = 3.0
 offset_top = 52.0
 offset_right = 284.0
 offset_bottom = 72.0
+scale = Vector2(0.3199996, 1)
 size_flags_vertical = 8
 theme_override_font_sizes/font_size = 8
-text = "Upgrade Angle"
+flat = true
 
 [node name="Angle" type="HSlider" parent="UI/Camera2D/CanvasLayer/VBoxContainer"]
 offset_top = 34.0
@@ -133,43 +127,49 @@ value = 40.0
 offset_top = 78.0
 offset_right = 281.0
 offset_bottom = 98.0
+scale = Vector2(0.3199996, 1)
 theme_override_font_sizes/font_size = 8
-text = "Upgrade Gravity"
+flat = true
 
 [node name="FrictionUpgrade" type="Button" parent="UI/Camera2D/CanvasLayer/VBoxContainer"]
 offset_top = 102.0
 offset_right = 281.0
 offset_bottom = 122.0
+scale = Vector2(0.3199996, 1)
 theme_override_font_sizes/font_size = 8
-text = "Upgrade Friction"
+flat = true
 
 [node name="ElasticityUpgrade" type="Button" parent="UI/Camera2D/CanvasLayer/VBoxContainer"]
 offset_top = 126.0
 offset_right = 281.0
 offset_bottom = 146.0
+scale = Vector2(0.3199996, 1)
 theme_override_font_sizes/font_size = 8
-text = "Upgrade Elasticity"
+flat = true
 
 [node name="SpeedUpgrade" type="Button" parent="UI/Camera2D/CanvasLayer/VBoxContainer"]
 offset_top = 150.0
 offset_right = 281.0
 offset_bottom = 170.0
+scale = Vector2(0.3199996, 1)
 theme_override_font_sizes/font_size = 8
-text = "Upgrade Speed"
+flat = true
 
 [node name="AirResistanceUpgrade" type="Button" parent="UI/Camera2D/CanvasLayer/VBoxContainer"]
 offset_top = 174.0
 offset_right = 281.0
 offset_bottom = 194.0
+scale = Vector2(0.3199996, 1)
 theme_override_font_sizes/font_size = 8
-text = "Upgrade Air Resistance"
+flat = true
 
 [node name="Shape" type="Button" parent="UI/Camera2D/CanvasLayer/VBoxContainer"]
 offset_top = 198.0
 offset_right = 281.0
 offset_bottom = 218.0
+scale = Vector2(0.3199996, 1)
 theme_override_font_sizes/font_size = 8
-text = "Change Shape"
+flat = true
 
 [node name="Settings" type="Button" parent="UI/Camera2D/CanvasLayer/VBoxContainer"]
 offset_top = 222.0

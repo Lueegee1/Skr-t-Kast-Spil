@@ -46,6 +46,7 @@ var change_shape_price = 5
 var shape_number = 0
 var num := 1
 var button_labels = []
+var map
 
 @onready var object = $LaunchSite/RigidBody2D/Sprite2D 
 @onready var collisionshape = $LaunchSite/RigidBody2D/CollisionPolygon2D
@@ -99,6 +100,16 @@ func _ready() -> void:
 		attach_text(upgbtn6, str(air_resistance_price), Vector2(-20,-20), 34),
 		attach_text(upgbtn7, str(change_shape_price), Vector2(-20,-20), 34),
 	]
+	map = {
+		upgbtn1: $UI/Camera2D/CanvasLayer/VBoxContainer/AngleUpgrade,
+		upgbtn2: $UI/Camera2D/CanvasLayer/VBoxContainer/GravityUpgrade,
+		upgbtn3: $UI/Camera2D/CanvasLayer/VBoxContainer/FrictionUpgrade,
+		upgbtn4: $UI/Camera2D/CanvasLayer/VBoxContainer/ElasticityUpgrade,
+		upgbtn5: $UI/Camera2D/CanvasLayer/VBoxContainer/SpeedUpgrade,
+		upgbtn6: $UI/Camera2D/CanvasLayer/VBoxContainer/AirResistanceUpgrade,
+		upgbtn7: $UI/Camera2D/CanvasLayer/VBoxContainer/Shape,
+	}
+
 
 func _rounding(num):
 	var exponent = int(log(num+1)/log(10))
@@ -125,6 +136,10 @@ func _process(_delta: float):
 
 	shopPosUpdate()
 	update_upgrade_labels()
+	for sprite_button in map.keys():
+		var btnInputOffset = Vector2(45,10)
+		var btn = map[sprite_button]
+		btn.position = sprite_button.position - btnInputOffset
 
 var list_start_pos := Vector2(233, 150)
 var name_to_button_gap := 30
@@ -190,7 +205,7 @@ func _on_friction_upgrade_pressed():
 		buy_and_upgrade("friction_price", "ground_friction", -0.05, 2, 0.000001)
 
 func _on_elasticity_upgrade_pressed():
-	if not Global.in_menu:
+	if not Global.in_menu: 
 		buy_and_upgrade("elasticity_price", "ground_elasticity", 0.1, 2,0,0.9)
 
 func _on_speed_upgrade_pressed():
