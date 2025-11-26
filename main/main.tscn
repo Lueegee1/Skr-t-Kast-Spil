@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://pmrbuelgkrua"]
+[gd_scene load_steps=24 format=3 uid="uid://pmrbuelgkrua"]
 
 [ext_resource type="Script" uid="uid://dskg7hx4b5lr" path="res://main/Ui_And_Mainscript.gd" id="1_53q0u"]
 [ext_resource type="Script" uid="uid://bah7bqvk6ivwr" path="res://main/Background.gd" id="2_3wy1v"]
@@ -12,6 +12,7 @@
 [ext_resource type="Script" uid="uid://ede05gusyuy4" path="res://main/GroundCollision.gd" id="4_c651c"]
 [ext_resource type="Shader" uid="uid://d0kineuej1sch" path="res://main/main.gdshader" id="5_0i4oc"]
 [ext_resource type="Texture2D" uid="uid://drpu3la45ogjk" path="res://Assets/Sprites/rrrelooc.png" id="5_5xyti"]
+[ext_resource type="FontFile" uid="uid://cgxmv30mbmmao" path="res://Assets/Roboto-Medium.ttf" id="5_n3o0a"]
 [ext_resource type="Texture2D" uid="uid://dtu31pgotbyyt" path="res://Assets/Sprites/cool.png" id="5_na0o7"]
 [ext_resource type="Texture2D" uid="uid://db0oq5hhxoy4y" path="res://Assets/Sprites/coolerrrr.png" id="6_n3o0a"]
 [ext_resource type="Script" uid="uid://b42hswy45scj5" path="res://main/Inventory.gd" id="7_4dugh"]
@@ -99,10 +100,19 @@ text = "0"
 custom_minimum_size = Vector2(0, 1)
 offset_top = 18.0
 offset_right = 281.0
-offset_bottom = 30.0
+offset_bottom = 56.0
 size_flags_vertical = 8
-theme_override_font_sizes/font_size = 8
-text = "Change Angle"
+theme_override_fonts/font = ExtResource("5_n3o0a")
+theme_override_font_sizes/font_size = 20
+text = "Set launch angle"
+
+[node name="Angle" type="HSlider" parent="UI/Camera2D/CanvasLayer/VBoxContainer"]
+offset_top = 34.0
+offset_right = 281.0
+offset_bottom = 50.0
+min_value = 40.0
+max_value = 50.0
+value = 40.0
 
 [node name="AngleUpgrade" type="Button" parent="UI/Camera2D/CanvasLayer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 1)
@@ -114,14 +124,6 @@ scale = Vector2(0.3199996, 1)
 size_flags_vertical = 8
 theme_override_font_sizes/font_size = 8
 flat = true
-
-[node name="Angle" type="HSlider" parent="UI/Camera2D/CanvasLayer/VBoxContainer"]
-offset_top = 34.0
-offset_right = 281.0
-offset_bottom = 50.0
-min_value = 40.0
-max_value = 50.0
-value = 40.0
 
 [node name="GravityUpgrade" type="Button" parent="UI/Camera2D/CanvasLayer/VBoxContainer"]
 offset_top = 78.0
@@ -328,8 +330,8 @@ shape = SubResource("RectangleShape2D_xwkvk")
 [node name="Inventory" type="Node" parent="."]
 script = ExtResource("7_4dugh")
 
-[connection signal="pressed" from="UI/Camera2D/CanvasLayer/VBoxContainer/AngleUpgrade" to="." method="_on_angle_upgrade_pressed"]
 [connection signal="value_changed" from="UI/Camera2D/CanvasLayer/VBoxContainer/Angle" to="." method="_on_angle_changed"]
+[connection signal="pressed" from="UI/Camera2D/CanvasLayer/VBoxContainer/AngleUpgrade" to="." method="_on_angle_upgrade_pressed"]
 [connection signal="pressed" from="UI/Camera2D/CanvasLayer/VBoxContainer/GravityUpgrade" to="." method="_on_gravity_upgrade_pressed"]
 [connection signal="pressed" from="UI/Camera2D/CanvasLayer/VBoxContainer/FrictionUpgrade" to="." method="_on_friction_upgrade_pressed"]
 [connection signal="pressed" from="UI/Camera2D/CanvasLayer/VBoxContainer/ElasticityUpgrade" to="." method="_on_elasticity_upgrade_pressed"]

@@ -142,7 +142,8 @@ func _process(_delta: float):
 		var btn = map[sprite_button]
 		btn.position = sprite_button.position - btnInputOffset
 	$UI/Camera2D/CanvasLayer/VBoxContainer/Settings.position = Vector2(250,20)
-
+	$UI/Camera2D/CanvasLayer/VBoxContainer/Angle_Label.position = Vector2(2,25)
+	$UI/Camera2D/CanvasLayer/VBoxContainer/Angle.position = Vector2(-70,50)
 var list_start_pos := Vector2(233, 150)
 var name_to_button_gap := 30
 var entry_gap := 70
