@@ -191,7 +191,7 @@ func _on_friction_upgrade_pressed():
 
 func _on_elasticity_upgrade_pressed():
 	if not Global.in_menu:
-		buy_and_upgrade("elasticity_price", "ground_elasticity", 0.1, 2)
+		buy_and_upgrade("elasticity_price", "ground_elasticity", 0.1, 2,0,0.9)
 
 func _on_speed_upgrade_pressed():
 	if not Global.in_menu:
