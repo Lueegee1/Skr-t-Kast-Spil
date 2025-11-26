@@ -115,7 +115,7 @@ func _process(_delta: float):
 
 	XpLabel.text = _rounding(Global.exp)
 	MoneyLabel.text = _rounding(Global.money)
-	#PrestigeLabel.text = "Prestige: " + _rounding(Global.prestige)
+	PrestigeLabel.text = ""
 
 	XpLabel.position = offsetXP
 	MoneyLabel.position = offsetMoney
@@ -191,7 +191,7 @@ func _on_friction_upgrade_pressed():
 
 func _on_elasticity_upgrade_pressed():
 	if not Global.in_menu:
-		buy_and_upgrade("elasticity_price", "ground_elasticity", 5, 2)
+		buy_and_upgrade("elasticity_price", "ground_elasticity", 0.1, 2)
 
 func _on_speed_upgrade_pressed():
 	if not Global.in_menu:

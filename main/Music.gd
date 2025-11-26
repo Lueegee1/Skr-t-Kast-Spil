@@ -13,7 +13,6 @@ func play_main_theme():
 	#stream.loop_mode = AudioStreamWAV.LOOP_FORWARD
 	#theme_player.stream = stream
 	theme_player.play()
-	print("dadwa")
 	
 func play_impact():
 	var player_impact = AudioStreamPlayer.new()

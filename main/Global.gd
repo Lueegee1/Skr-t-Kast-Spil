@@ -36,9 +36,6 @@ func _process(_delta):
 		prev_money = money
 		prev_exp = exp
 		prev_prestige = prestige
-	print(exp)
-	print(prestige)
-	print(money)
 	
 func save_game():
 	var data = {

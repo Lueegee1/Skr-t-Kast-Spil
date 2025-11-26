@@ -65,6 +65,16 @@ func _physics_process(delta): # called every frame
 			stood_still = true
 			Global.Inventory._get_money(position.x)
 			initiate_Launch()
+
+	print("linear damp: ", linear_damp)
+	print("gravity: ", gravity_scale)
+	print("friction: ", ground_friction)
+	print("elasticity: ", ground_elasticity)
+	print("speed: ", launch_speed)
+	print("angle: ", launch_angle)
+	
+	
+	
 func _integrate_forces(state):
 	for i in state.get_contact_count():
 		var collider = state.get_contact_collider_object(i)
