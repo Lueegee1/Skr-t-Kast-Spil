@@ -95,7 +95,7 @@ scale = Vector2(2.39408, 2.0930214)
 theme_override_font_sizes/font_size = 12
 text = "0"
 
-[node name="VBoxContainer" type="Node" parent="UI/Camera2D/CanvasLayer"]
+[node name="VBoxContainer" type="Node2D" parent="UI/Camera2D/CanvasLayer"]
 
 [node name="Title" type="Label" parent="UI/Camera2D/CanvasLayer/VBoxContainer"]
 offset_right = 281.0
@@ -113,6 +113,17 @@ size_flags_vertical = 8
 theme_override_font_sizes/font_size = 8
 text = "Change Angle"
 
+[node name="AngleUpgrade" type="Button" parent="UI/Camera2D/CanvasLayer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 1)
+offset_left = 903.0
+offset_top = -526.0
+offset_right = 1184.0
+offset_bottom = -506.0
+size_flags_vertical = 8
+theme_override_font_sizes/font_size = 8
+text = "Upgrade Angle"
+flat = true
+
 [node name="Angle" type="HSlider" parent="UI/Camera2D/CanvasLayer/VBoxContainer"]
 offset_top = 34.0
 offset_right = 281.0
@@ -120,16 +131,6 @@ offset_bottom = 50.0
 min_value = 40.0
 max_value = 50.0
 value = 40.0
-
-[node name="AngleUpgrade" type="Button" parent="UI/Camera2D/CanvasLayer/VBoxContainer"]
-custom_minimum_size = Vector2(0, 1)
-offset_top = 54.0
-offset_right = 281.0
-offset_bottom = 74.0
-size_flags_vertical = 8
-theme_override_font_sizes/font_size = 8
-text = "Upgrade Angle"
-flat = true
 
 [node name="GravityUpgrade" type="Button" parent="UI/Camera2D/CanvasLayer/VBoxContainer"]
 offset_top = 78.0
@@ -181,12 +182,72 @@ theme_override_font_sizes/font_size = 12
 text = "Settings"
 
 [node name="Rrrelooc" type="Sprite2D" parent="UI/Camera2D/CanvasLayer/VBoxContainer"]
-position = Vector2(1102.4475, -490.00003)
+position = Vector2(1099.4475, -465.00003)
 scale = Vector2(0.6, 0.6)
 texture = ExtResource("5_5xyti")
 
 [node name="Coolerrrr" type="Sprite2D" parent="UI/Camera2D/CanvasLayer/VBoxContainer"]
-position = Vector2(1050.35, -516.2)
+position = Vector2(1047.35, -491.2)
+scale = Vector2(0.45, 0.4)
+texture = ExtResource("6_n3o0a")
+
+[node name="Rrrelooc2" type="Sprite2D" parent="UI/Camera2D/CanvasLayer/VBoxContainer"]
+position = Vector2(1099.4475, -407.00003)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("5_5xyti")
+
+[node name="Coolerrrr2" type="Sprite2D" parent="UI/Camera2D/CanvasLayer/VBoxContainer"]
+position = Vector2(1047.35, -433.2)
+scale = Vector2(0.45, 0.4)
+texture = ExtResource("6_n3o0a")
+
+[node name="Rrrelooc3" type="Sprite2D" parent="UI/Camera2D/CanvasLayer/VBoxContainer"]
+position = Vector2(1099.4475, -348.00003)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("5_5xyti")
+
+[node name="Coolerrrr3" type="Sprite2D" parent="UI/Camera2D/CanvasLayer/VBoxContainer"]
+position = Vector2(1047.35, -374.2)
+scale = Vector2(0.45, 0.4)
+texture = ExtResource("6_n3o0a")
+
+[node name="Rrrelooc4" type="Sprite2D" parent="UI/Camera2D/CanvasLayer/VBoxContainer"]
+position = Vector2(1099.4475, -290.00003)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("5_5xyti")
+
+[node name="Coolerrrr4" type="Sprite2D" parent="UI/Camera2D/CanvasLayer/VBoxContainer"]
+position = Vector2(1047.35, -316.2)
+scale = Vector2(0.45, 0.4)
+texture = ExtResource("6_n3o0a")
+
+[node name="Rrrelooc5" type="Sprite2D" parent="UI/Camera2D/CanvasLayer/VBoxContainer"]
+position = Vector2(1099.4475, -231.00003)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("5_5xyti")
+
+[node name="Coolerrrr5" type="Sprite2D" parent="UI/Camera2D/CanvasLayer/VBoxContainer"]
+position = Vector2(1047.35, -257.2)
+scale = Vector2(0.45, 0.4)
+texture = ExtResource("6_n3o0a")
+
+[node name="Rrrelooc6" type="Sprite2D" parent="UI/Camera2D/CanvasLayer/VBoxContainer"]
+position = Vector2(1099.4475, -173.00003)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("5_5xyti")
+
+[node name="Coolerrrr6" type="Sprite2D" parent="UI/Camera2D/CanvasLayer/VBoxContainer"]
+position = Vector2(1047.35, -199.20001)
+scale = Vector2(0.45, 0.4)
+texture = ExtResource("6_n3o0a")
+
+[node name="Rrrelooc7" type="Sprite2D" parent="UI/Camera2D/CanvasLayer/VBoxContainer"]
+position = Vector2(1099.4475, -114.00003)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("5_5xyti")
+
+[node name="Coolerrrr7" type="Sprite2D" parent="UI/Camera2D/CanvasLayer/VBoxContainer"]
+position = Vector2(1047.35, -140.20001)
 scale = Vector2(0.45, 0.4)
 texture = ExtResource("6_n3o0a")
 
@@ -252,8 +313,8 @@ shape = SubResource("RectangleShape2D_xwkvk")
 [node name="Inventory" type="Node" parent="."]
 script = ExtResource("7_4dugh")
 
-[connection signal="value_changed" from="UI/Camera2D/CanvasLayer/VBoxContainer/Angle" to="." method="_on_angle_changed"]
 [connection signal="pressed" from="UI/Camera2D/CanvasLayer/VBoxContainer/AngleUpgrade" to="." method="_on_angle_upgrade_pressed"]
+[connection signal="value_changed" from="UI/Camera2D/CanvasLayer/VBoxContainer/Angle" to="." method="_on_angle_changed"]
 [connection signal="pressed" from="UI/Camera2D/CanvasLayer/VBoxContainer/GravityUpgrade" to="." method="_on_gravity_upgrade_pressed"]
 [connection signal="pressed" from="UI/Camera2D/CanvasLayer/VBoxContainer/FrictionUpgrade" to="." method="_on_friction_upgrade_pressed"]
 [connection signal="pressed" from="UI/Camera2D/CanvasLayer/VBoxContainer/ElasticityUpgrade" to="." method="_on_elasticity_upgrade_pressed"]
