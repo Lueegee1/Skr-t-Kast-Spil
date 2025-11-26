@@ -1,10 +1,12 @@
-[gd_scene load_steps=3 format=3 uid="uid://bin3mowce36fg"]
+[gd_scene load_steps=4 format=3 uid="uid://bin3mowce36fg"]
 
 [ext_resource type="Script" uid="uid://cexs2dyu52qie" path="res://main/SettingsMenu.gd" id="1_x2hje"]
+[ext_resource type="FontFile" uid="uid://cgxmv30mbmmao" path="res://Assets/Roboto-Medium.ttf" id="2_txqa6"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x2hje"]
 
 [node name="Settings" type="Control"]
+z_index = -100
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -16,7 +18,7 @@ script = ExtResource("1_x2hje")
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="Panel" type="Panel" parent="CanvasLayer"]
-self_modulate = Color(0, 0, 0, 1)
+self_modulate = Color(0.47788018, 0.47788012, 0.47788012, 1)
 z_index = 4096
 offset_right = 40.0
 offset_bottom = 40.0
@@ -24,53 +26,69 @@ scale = Vector2(28.674713, 16.27667)
 theme_override_styles/panel = SubResource("StyleBoxFlat_x2hje")
 
 [node name="VBoxContainer" type="Node2D" parent="CanvasLayer/Panel"]
-position = Vector2(3.5222669, 5.0993233)
+position = Vector2(1.011344, 8.478392)
 scale = Vector2(0.27363577, 0.20435932)
 
 [node name="Title" type="RichTextLabel" parent="CanvasLayer/Panel/VBoxContainer"]
-offset_right = 109.0
-offset_bottom = 23.0
+offset_left = 17.332727
+offset_top = -10.8228655
+offset_right = 1276.5045
+offset_bottom = 367.97766
+scale = Vector2(0.05, 0.08607606)
+theme_override_fonts/normal_font = ExtResource("2_txqa6")
+theme_override_font_sizes/normal_font_size = 250
 bbcode_enabled = true
 text = "Settings"
 
-[node name="Sound_Title" type="Label" parent="CanvasLayer/Panel/VBoxContainer"]
-offset_top = 27.0
-offset_right = 109.0
-offset_bottom = 39.0
-theme_override_font_sizes/font_size = 8
-text = "Sound control"
+[node name="Master Vol" type="RichTextLabel" parent="CanvasLayer/Panel/VBoxContainer"]
+offset_left = 21.920805
+offset_top = 21.345108
+offset_right = 2101.8481
+offset_bottom = 400.14563
+scale = Vector2(0.05, 0.08607606)
+theme_override_fonts/normal_font = ExtResource("2_txqa6")
+theme_override_font_sizes/normal_font_size = 200
+bbcode_enabled = true
+text = "Master Volume"
 
 [node name="Sound" type="HSlider" parent="CanvasLayer/Panel/VBoxContainer"]
-offset_top = 43.0
-offset_right = 109.0
-offset_bottom = 59.0
+offset_left = 1.0195723
+offset_top = 35.775593
+offset_right = 109.09424
+offset_bottom = 65.237854
 min_value = -60.0
 max_value = 0.0
 
 [node name="ScreenMode" type="Button" parent="CanvasLayer/Panel/VBoxContainer"]
+offset_left = -2.548931
 offset_top = 63.0
-offset_right = 109.0
-offset_bottom = 88.0
-theme_override_font_sizes/font_size = 12
-text = "Change Mode"
+offset_right = 2156.3955
+offset_bottom = 678.96436
+scale = Vector2(0.02451073, 0.05)
+theme_override_fonts/font = ExtResource("2_txqa6")
+theme_override_font_sizes/font_size = 400
+text = "Fullscreen"
 
 [node name="Button" type="Button" parent="CanvasLayer/Panel/VBoxContainer"]
-offset_top = 92.0
-offset_right = 109.0
-offset_bottom = 117.0
+offset_left = 53.400097
+offset_top = 63.13342
+offset_right = 2369.4001
+offset_bottom = 679.0974
+scale = Vector2(0.025, 0.05)
 theme_override_colors/font_color = Color(1, 0, 0, 1)
-theme_override_font_sizes/font_size = 12
+theme_override_font_sizes/font_size = 400
 text = "Reset Game"
 
 [node name="Button" type="Button" parent="CanvasLayer/Panel"]
 layout_mode = 0
-offset_left = 32.642
-offset_top = 33.85213
-offset_right = 141.642
-offset_bottom = 55.85213
-scale = Vector2(0.063160434, 0.23292185)
-theme_override_font_sizes/font_size = 10
-text = "Close Settings"
+offset_left = 19.076042
+offset_top = 30.473064
+offset_right = 1322.076
+offset_bottom = 273.47305
+scale = Vector2(0.0074575637, 0.02203738)
+theme_override_fonts/font = ExtResource("2_txqa6")
+theme_override_font_sizes/font_size = 200
+text = "Close"
 
 [connection signal="value_changed" from="CanvasLayer/Panel/VBoxContainer/Sound" to="." method="_on_sound_value_changed"]
 [connection signal="pressed" from="CanvasLayer/Panel/VBoxContainer/ScreenMode" to="." method="_on_screen_mode_pressed"]
