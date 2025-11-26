@@ -245,18 +245,18 @@ func collision_follow_sprite(sprite: Sprite2D, collider: CollisionPolygon2D):
 
 	if outline.size() > 8:
 		var hull = Geometry2D.convex_hull(outline)
+
+		# compute image center of the hull
 		var center = Vector2.ZERO
 		for point in hull:
 			center += point
 		center /= hull.size()
+		var polygon_points := []
+		for point in hull:
+			var local_point = (point - center) * sprite.scale
+			polygon_points.append(local_point)
+		collider.polygon = polygon_points
 
-		for i in range(hull.size()):
-			var local_point = hull[i] - center
-			local_point.y = -local_point.y
-			hull[i] = local_point * sprite.scale
-
-		collider.polygon = hull
 		var tex_size = Vector2(width, height)
-		var sprite_offset = (tex_size / 2 - center)
-		sprite_offset.y = -sprite_offset.y
-		collider.position = sprite_offset * sprite.scale
+		var sprite_offset = (tex_size / 2.0 - center) * sprite.scale
+		collider.position = sprite_offset
