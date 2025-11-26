@@ -13,9 +13,9 @@ extends RigidBody2D
 @export var stop_threshold := 5.0                      # velocity threshold rquired for the RigidBody2D to be considered stopped
 @export var stop_delay := 1.0                          # seconds it must stay still to count as stopped
 @export var time_between_launch = 0.5                  # the time between launch command being given and the RigidBody2D actually being launched
-@export var air_resistance = 0.5                     # uses the "damp" variable as air resistance
+@export var air_resistance = 0.5                       # uses the "damp" variable as air resistance
 @export var gravity = 1                                # uses the "gravity_scale" as gravity
-@export var ground_friction = 0.1                     # uses PhysicsMaterial's "friction" as friction
+@export var ground_friction = 0.1                      # uses PhysicsMaterial's "friction" as friction
 @export var ground_elasticity = 0.0                    # uses PhysicsMaterial's "bounce" as the grounds elasticity
 
 # variables
