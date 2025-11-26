@@ -83,3 +83,7 @@ func reload_variables():
 	BodyMaterial.bounce = ground_elasticity
 	# Apply the material to the RigidBody2D itself
 	physics_material_override = BodyMaterial
+
+func _input(event):
+	if Input.is_action_just_pressed("ui_accept"):
+		initiate_Launch()

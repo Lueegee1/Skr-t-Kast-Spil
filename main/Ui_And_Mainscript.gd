@@ -58,17 +58,21 @@ var ui_font := preload("res://Assets/Roboto-Medium.ttf")
 # ---------------------------------------------------------
 # Fixed attach_text()
 # ---------------------------------------------------------
-func attach_text(sprite: Node, txt: String, offset := Vector2(0,0), font_size := 24):
+func attach_text(parent: Node, txt: String, offset := Vector2(0,0), font_size := 24):
 	var lbl := Label.new()
 	lbl.text = txt
+	if parent is Control:
+		lbl.size = parent.size
+	else:
+		lbl.size = Vector2(80, 40)
 	lbl.position = offset
-
-	# Apply the preloaded font directly (the correct way)
+	lbl.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	lbl.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
 	lbl.add_theme_font_override("font", ui_font)
 	lbl.add_theme_font_size_override("font_size", font_size)
-
-	sprite.add_child(lbl)
+	parent.add_child(lbl)
 	return lbl
+
 
 
 func _ready() -> void:
@@ -178,7 +182,8 @@ func update_upgrade_labels():
 
 func _on_gravity_upgrade_pressed():
 	if not Global.in_menu:
-		buy_and_upgrade("gravity_price", "gravity", -0.05, 2)
+		buy_and_upgrade("gravity_price", "gravity", -0.05, 2, 0.1)
+
 
 func _on_friction_upgrade_pressed():
 	if not Global.in_menu:

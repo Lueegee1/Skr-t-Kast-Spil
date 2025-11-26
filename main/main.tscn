@@ -287,6 +287,8 @@ linear_damp_mode = 1
 linear_damp = 0.08
 angular_damp = 0.08
 script = ExtResource("2_pjrb6")
+air_resistance = 1.0
+ground_elasticity = 0.1
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="LaunchSite/RigidBody2D"]
 
