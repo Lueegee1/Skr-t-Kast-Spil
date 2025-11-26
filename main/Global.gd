@@ -9,6 +9,7 @@ var saved_gravity
 var saved_ground_friction
 var saved_ground_elasticity
 var saved_shape := 1
+var saved_speed = 500
 
 
 const SAVE_FILE = "user://database.json"
@@ -23,7 +24,7 @@ var Music
 var ball_loaded := false
 var UI
 
-
+var prev_speed = 500
 var prev_money = 0
 var prev_exp = 0
 var prev_prestige = 0
@@ -70,6 +71,9 @@ func _process(_delta):
 	if Global.Ball.ground_elasticity != prev_ground_elasticity:
 		save_game()
 		prev_ground_elasticity = Global.Ball.ground_elasticity
+	if Global.Ball.launch_speed != prev_speed:
+		save_game()
+		prev_speed = Global.Ball.launch_speed
 	if UI != null and prev_num != UI.num:
 		saved_shape = UI.num
 		save_game()
@@ -82,6 +86,7 @@ func save_game():
 		"prestige": prestige,
 		"exp": exp,
 		"launch_angle": Global.Ball.launch_angle,
+		"speed": Global.Ball.launch_speed,
 		"air_resistance": Global.Ball.air_resistance,
 		"gravity": Global.Ball.gravity,
 		"ground_friction": Global.Ball.ground_friction,
@@ -110,6 +115,7 @@ func apply_ball_stats():
 	Ball.gravity = saved_gravity
 	Ball.ground_friction = saved_ground_friction
 	Ball.ground_elasticity = saved_ground_elasticity
+	Ball.launch_speed = saved_speed
 
 func load_game():
 	if not FileAccess.file_exists(SAVE_FILE):
@@ -128,4 +134,5 @@ func load_game():
 	saved_ground_friction = data.get("ground_friction", 0.1)
 	saved_ground_elasticity = data.get("ground_elasticity", 0.5)
 	saved_shape = data.get("shape", 1)
+	saved_speed = data.get("speed", 500)
 		
