@@ -271,6 +271,14 @@ z_index = -10
 position = Vector2(591, -329)
 texture = ExtResource("5_na0o7")
 
+[node name="FormulaLabel" type="RichTextLabel" parent="UI/Camera2D/CanvasLayer"]
+offset_right = 494.0
+offset_bottom = 531.0
+mouse_filter = 2
+theme_override_fonts/normal_font = ExtResource("5_n3o0a")
+bbcode_enabled = true
+scroll_active = false
+
 [node name="Trail" type="Line2D" parent="."]
 position = Vector2(581, -329)
 width_curve = SubResource("Curve_67ri8")
@@ -313,10 +321,10 @@ show_behind_parent = true
 z_index = -10
 z_as_relative = false
 material = SubResource("ShaderMaterial_kfbq2")
-offset_left = -564.0
-offset_top = -28307.0
-offset_right = 59376.0
-offset_bottom = 614.0
+offset_left = -569.0
+offset_top = -28193.0
+offset_right = 59371.0
+offset_bottom = 728.0
 scale = Vector2(1, 0.99992716)
 script = ExtResource("2_3wy1v")
 

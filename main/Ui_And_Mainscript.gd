@@ -51,14 +51,8 @@ var map
 @onready var object = $LaunchSite/RigidBody2D/Sprite2D 
 @onready var collisionshape = $LaunchSite/RigidBody2D/CollisionPolygon2D
 
-# ---------------------------------------------------------
-# Load your font ONCE
-# ---------------------------------------------------------
 var ui_font := preload("res://Assets/Roboto-Medium.ttf")
 
-# ---------------------------------------------------------
-# Fixed attach_text()
-# ---------------------------------------------------------
 func attach_text(parent: Node, txt: String, offset := Vector2(0,0), font_size := 24):
 	var lbl := Label.new()
 	lbl.text = txt
@@ -82,7 +76,6 @@ func _ready() -> void:
 	object.scale = Vector2(0.1,0.1)
 	collision_follow_sprite(object, collisionshape)
 
-	# Name texts with custom position + font size
 	attach_text(name1, "Increase possible angles", Vector2(-168, -17), 30)
 	attach_text(name2, "Reduce gravity on object", Vector2(-168, -17), 30)
 	attach_text(name3, "Reduce objects friction", Vector2(-160, -17), 30)
@@ -91,7 +84,6 @@ func _ready() -> void:
 	attach_text(name6, "Decrease air resistance", Vector2(-160, -17), 30)
 	attach_text(name7, "Change object shape", Vector2(-140, -17), 30)
 
-	# Buttons
 	button_labels = [
 		attach_text(upgbtn1, str(angle_price), Vector2(-20,-20), 34),
 		attach_text(upgbtn2, str(gravity_price), Vector2(-20,-20), 34),
@@ -110,6 +102,31 @@ func _ready() -> void:
 		upgbtn6: $UI/Camera2D/CanvasLayer/VBoxContainer/AirResistanceUpgrade,
 		upgbtn7: $UI/Camera2D/CanvasLayer/VBoxContainer/Shape,
 	}
+
+func update_formula_text():
+	var text := ""
+	text += "Fₜ = m · g\n"
+	text += "g = [color=yellow]%s[/color]\n\n" % Global.Ball.gravity
+
+	text += "F = Fₙ · μ\n"
+	text += "μ = [color=yellow]%s[/color]\n\n" % Global.Ball.ground_friction
+
+	text += "Fₑ = k · x\n"
+	text += "k = [color=yellow]%s[/color]\n\n" % Global.Ball.ground_elasticity
+
+	text += "v = m · a\n"
+	text += "a = [color=yellow]%s[/color]\n\n" % Global.Ball.launch_speed
+
+	text += "Fₗ = 1/2 · c𝓌 · ρ · A · v²\n"
+	text += "c𝓌 = [color=yellow]%s[/color]\n" % Global.Ball.air_resistance
+
+
+	
+	var lbl = $UI/Camera2D/CanvasLayer/FormulaLabel
+	lbl.bbcode_enabled = true
+	lbl.bbcode_text = text
+
+
 
 
 func _rounding(num):
@@ -144,6 +161,8 @@ func _process(_delta: float):
 	$UI/Camera2D/CanvasLayer/VBoxContainer/Settings.position = Vector2(250,20)
 	$UI/Camera2D/CanvasLayer/VBoxContainer/Angle_Label.position = Vector2(2,25)
 	$UI/Camera2D/CanvasLayer/VBoxContainer/Angle.position = Vector2(-70,50)
+	$UI/Camera2D/CanvasLayer/FormulaLabel.position = Vector2(950,230)
+	update_formula_text()
 var list_start_pos := Vector2(233, 150)
 var name_to_button_gap := 30
 var entry_gap := 70

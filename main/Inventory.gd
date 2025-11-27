@@ -14,7 +14,7 @@ func _process(delta: float) -> void:
 		Global.exp = int(-Global.Ball.position.y)
 	pass
 func _get_money(pos):
-	Global.money += pos
+	Global.money += pos*pos/10000 
 	Global.money = int(Global.money)
 func _remove_money(price):
 	Global.money -= price
