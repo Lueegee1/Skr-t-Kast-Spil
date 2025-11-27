@@ -25,7 +25,9 @@ func _on_reset_button_pressed():
 		"air_resistance": 0.5,
 		"gravity": 1.0,
 		"ground_friction": 0.1,
-		"ground_elasticity": 0.0
+		"ground_elasticity": 0.0,
+		"speed": 500,
+		"shape": 1
 	}
 
 	var file = FileAccess.open(Global.SAVE_FILE, FileAccess.WRITE)
