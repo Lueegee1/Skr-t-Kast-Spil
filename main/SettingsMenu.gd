@@ -33,3 +33,4 @@ func _on_reset_button_pressed():
 	var file = FileAccess.open(Global.SAVE_FILE, FileAccess.WRITE)
 	file.store_string(JSON.stringify(data))
 	file.close()
+	get_tree().reload_current_scene()
