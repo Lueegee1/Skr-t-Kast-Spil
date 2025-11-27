@@ -221,11 +221,19 @@ func _on_air_resistance_upgrade_pressed():
 
 func _on_shape_changed():
 	if num < 6:
-		num += 1
-		object.texture = load("res://Assets/Sprites/shapes without glare/%d.png" % num)
-		object.scale = Vector2(0.1, 0.1)
-		object.modulate = Color.WHITE
-		collision_follow_sprite(object, collisionshape)
+		set_shape(num + 1)
+		
+func set_shape(index: int) -> void:
+	if index < 1:
+		index = 1
+	if index > 6:
+		index = 6
+
+	num = index
+	object.texture = load("res://Assets/Sprites/shapes without glare/%d.png" % num)
+	object.scale = Vector2(0.1, 0.1)
+	object.modulate = Color.WHITE
+	collision_follow_sprite(object, collisionshape)
 
 func _on_settings_button_pressed():
 	var menu = settings_menu.instantiate()

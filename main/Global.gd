@@ -11,7 +11,6 @@ var saved_ground_elasticity
 var saved_shape := 1
 var saved_speed = 500
 
-
 const SAVE_FILE = "user://database.json"
 
 var GameController
@@ -36,15 +35,14 @@ var prev_ground_elasticity = 0.5
 var prev_num = 1
 
 func _ready():
+	await get_tree().process_frame 
 	load_game()
 	await wait_for_ball()
 	await wait_for_UI()
 	apply_ball_stats()
 	if UI != null:
-		UI.num = saved_shape
-		UI._on_shape_changed() 
+		UI.set_shape(saved_shape)
 		prev_num = UI.num
-	
 
 func _process(_delta):
 	if money != prev_money:
@@ -78,8 +76,7 @@ func _process(_delta):
 		saved_shape = UI.num
 		save_game()
 		prev_num = UI.num
-	
-	
+
 func save_game():
 	var data = {
 		"money": money,
@@ -96,15 +93,14 @@ func save_game():
 	var file = FileAccess.open(SAVE_FILE, FileAccess.WRITE)
 	file.store_string(JSON.stringify(data))
 	file.close()
-	
+
 func wait_for_ball():
-	while ball_loaded == false:
-		await get_tree().process_frame
+	while not ball_loaded:
+		await get_tree().create_timer(0.01).timeout
 
 func wait_for_UI():
 	while UI == null:
-		await get_tree().process_frame
-
+		await get_tree().create_timer(0.01).timeout
 
 func apply_ball_stats():
 	if Ball == null:
@@ -123,7 +119,7 @@ func load_game():
 	var file = FileAccess.open(SAVE_FILE, FileAccess.READ)
 	var data = JSON.parse_string(file.get_as_text())
 	file.close()
-	if typeof(data) != TYPE_DICTIONARY: #ERROR checking
+	if typeof(data) != TYPE_DICTIONARY:
 		return
 	prestige = data.get("prestige", 0)
 	money = data.get("money", 0)
@@ -135,4 +131,3 @@ func load_game():
 	saved_ground_elasticity = data.get("ground_elasticity", 0.5)
 	saved_shape = data.get("shape", 1)
 	saved_speed = data.get("speed", 500)
-		
