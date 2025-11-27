@@ -35,14 +35,14 @@ var offsetPrestige = Vector2(400,0)
 var offsetUpgrades = Vector2(800,0)
 var offsetForeground = Vector2(576,324)
 
-var angle_price = 5
-var friction_price = 5 
-var elasticity_price = 5
+var angle_price = 10
+var friction_price = 100
+var elasticity_price = 100
 var speed_price = 5
-var air_resistance_price = 5
-var shape_price = 5
-var gravity_price = 5
-var change_shape_price = 5
+var air_resistance_price = 100
+var shape_price = 100
+var gravity_price = 10
+var change_shape_price = 100
 
 var shape_number = 0
 var num := 1
@@ -118,13 +118,14 @@ func update_formula_text():
 	text += "v = m · a\n"
 	text += "a = [color=yellow]%s[/color]\n\n" % Global.Ball.launch_speed
 
-	text += "Fₗ = 1/2 · c𝓌 · ρ · A · v²\n"
+	text += "Fₗ = c𝓌 · 1/2 ρAv²\n"
 	text += "c𝓌 = [color=yellow]%s[/color]\n" % Global.Ball.air_resistance
 
 
 	
 	var lbl = $UI/Camera2D/CanvasLayer/FormulaLabel
 	lbl.bbcode_enabled = true
+	lbl.add_theme_constant_override("line_separation", 12)
 	lbl.bbcode_text = text
 
 
@@ -162,7 +163,7 @@ func _process(_delta: float):
 	$UI/Camera2D/CanvasLayer/VBoxContainer/Settings.position = Vector2(250,20)
 	$UI/Camera2D/CanvasLayer/VBoxContainer/Angle_Label.position = Vector2(2,25)
 	$UI/Camera2D/CanvasLayer/VBoxContainer/Angle.position = Vector2(-70,50)
-	$UI/Camera2D/CanvasLayer/FormulaLabel.position = Vector2(950,230)
+	$UI/Camera2D/CanvasLayer/FormulaLabel.position = Vector2(935,230)
 	update_formula_text()
 var list_start_pos := Vector2(233, 150)
 var name_to_button_gap := 30
@@ -233,11 +234,11 @@ func _on_elasticity_upgrade_pressed():
 
 func _on_speed_upgrade_pressed():
 	if not Global.in_menu:
-		buy_and_upgrade("speed_price", "launch_speed", 100, 2)
+		buy_and_upgrade("speed_price", "launch_speed", 100, 1.5)
 
 func _on_air_resistance_upgrade_pressed():
 	if not Global.in_menu:
-		buy_and_upgrade("air_resistance_price", "air_resistance", -0.001, 2)
+		buy_and_upgrade("air_resistance_price", "air_resistance", -0.05, 5,0.1)
 
 func _on_shape_changed():
 	if num < 6:
