@@ -10,6 +10,7 @@ extends Node2D
 @onready var shapes = ["4kant", "5kant", "6kant", "7kant", "8kant","9kant","10kant"]
 @onready var settings_menu = preload("res://main/settings.tscn")
 @onready var foreground = $UI/Camera2D/CanvasLayer/Foreground
+@onready var speedcounter = $UI/Camera2D/CanvasLayer/Speeeeedd
 var possible_angles = [45,45]
 
 # Upgrade Button Nodes
@@ -28,8 +29,8 @@ var possible_angles = [45,45]
 @onready var upgbtn7 = $UI/Camera2D/CanvasLayer/VBoxContainer/Rrrelooc7
 @onready var name7 = $UI/Camera2D/CanvasLayer/VBoxContainer/Coolerrrr7
 
-var offsetXP = Vector2(0,0)
-var offsetMoney = Vector2(200,0)
+var offsetXP = Vector2(450,12)
+var offsetMoney = Vector2(100,12)
 var offsetPrestige = Vector2(400,0)
 var offsetUpgrades = Vector2(800,0)
 var offsetForeground = Vector2(576,324)
@@ -127,8 +128,6 @@ func update_formula_text():
 	lbl.bbcode_text = text
 
 
-
-
 func _rounding(num):
 	var exponent = int(log(num+1)/log(10))
 	var suffixes = ["","K","M","B","T","Qu","Qi","Sx","Sp","O","N","Dc"]
@@ -144,6 +143,7 @@ func _process(_delta: float):
 
 	XpLabel.text = _rounding(Global.exp)
 	MoneyLabel.text = _rounding(Global.money)
+	speedcounter.text = "v = " + _rounding(Global.Ball.linear_velocity.length())
 	PrestigeLabel.text = ""
 
 	XpLabel.position = offsetXP
@@ -151,6 +151,7 @@ func _process(_delta: float):
 	PrestigeLabel.position = offsetPrestige
 	Upgrades.position = offsetUpgrades
 	foreground.position = offsetForeground
+	speedcounter.position = Vector2(600,500)
 
 	shopPosUpdate()
 	update_upgrade_labels()
